@@ -1,1 +1,7 @@
+# Ignore large raw video and zip files
 *.mp4
+*.zip
+!compressed_*.mp4
+
+# Ignore the ffmpeg folder
+ffmpeg-master-latest-win64-gpl/
