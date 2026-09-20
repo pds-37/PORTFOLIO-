@@ -1,380 +1,428 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Priyanshu Tiwari — software engineer building reliable AI-driven and full-stack products.">
-  <title>Priyanshu Tiwari — Software Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIYANSHU - AI Engineer & Builder</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --bg: #030305;
-      --surface: #0f0f13;
-      --surface-border: #1f1f26;
-      --surface-hover: #16161c;
-      --text-main: #f0f0f5;
-      --text-muted: #8b8b99;
-      --accent-1: #6366f1; /* Indigo */
-      --accent-2: #a855f7; /* Purple */
-      --accent-3: #ec4899; /* Pink */
-      --glow: rgba(99, 102, 241, 0.15);
-      --max: 1200px;
+      --bg-light: #f4ebd0; /* A warmer beige based on the image */
+      --bg-light-2: #f2efe9;
+      --bg-dark: #121415; /* Deep black with a hint of blue/gray */
+      --text-light: #181818;
+      --text-dark: #f0f0f0;
+      --gray-light: #555555;
+      --gray-dark: #999999;
+      --border-light: #e0ddd3;
+      --border-dark: #333333;
     }
     
-    * { box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { 
-      margin: 0; 
-      background: var(--bg); 
-      color: var(--text-main); 
-      font-family: 'Manrope', sans-serif; 
-      line-height: 1.6; 
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; transition: all 0.2s; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background: var(--bg-light-2); }
     
-    /* Background gradients */
-    .bg-gradient {
-      position: fixed;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle at 50% 50%, var(--glow) 0%, transparent 40%);
-      pointer-events: none; z-index: -1;
-    }
-
-    .wrap { width: min(calc(100% - 3rem), var(--max)); margin: auto; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    .handwriting { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #333; transform: rotate(-5deg); position: absolute; line-height: 1.2; }
+    .handwriting.dark { color: #bbbbbb; }
+    
+    /* Layouts */
+    .section-light { background: var(--bg-light-2); color: var(--text-light); }
+    .section-dark { background: var(--bg-dark); color: var(--text-dark); }
+    
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+    
+    /* Nav */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 5%; position: absolute; top: 0; width: 100%; z-index: 10; }
+    .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2.5rem; font-size: 0.85rem; font-weight: 600; }
+    .nav-links a { transition: 0.3s; }
+    .nav-links a:hover { opacity: 0.5; }
+    
+    /* Buttons */
+    .btn { padding: 0.9rem 2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: 0.3s; cursor: pointer; }
+    .btn-solid-dark { background: var(--text-light); color: var(--bg-light-2); border: 1px solid var(--text-light); }
+    .btn-solid-dark:hover { background: transparent; color: var(--text-light); }
+    .btn-outline-dark { background: transparent; color: var(--text-light); border: 1px solid var(--text-light); }
+    .btn-outline-dark:hover { background: var(--text-light); color: var(--bg-light-2); }
+    
+    .btn-solid-light { background: var(--text-dark); color: var(--bg-dark); border: 1px solid var(--text-dark); }
+    .btn-solid-light:hover { background: transparent; color: var(--text-dark); }
+    .btn-outline-light { background: transparent; color: var(--text-dark); border: 1px solid var(--text-dark); }
+    .btn-outline-light:hover { background: var(--text-dark); color: var(--bg-dark); }
     
     /* Typography */
-    .mono { font-family: 'DM Mono', monospace; }
-    .kicker { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-1); margin-bottom: 1rem; display: block; }
-    .gradient-text {
-      background: linear-gradient(135deg, #fff, #a5a5b5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .gradient-text-accent {
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Nav */
-    nav { 
-      position: fixed; top: 0; width: 100%; z-index: 50; 
-      background: rgba(3, 3, 5, 0.7); backdrop-filter: blur(12px); 
-      border-bottom: 1px solid var(--surface-border);
-    }
-    .nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    .mark { font-weight: 700; font-size: 1.2rem; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--accent-1); }
-    .contact-link { background: var(--text-main); color: var(--bg); padding: 0.5rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem; }
-    .contact-link:hover { background: var(--accent-1); color: #fff; transform: scale(1.05); }
-
+    .kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 1.5rem; display: block; opacity: 0.6; }
+    h1 { font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 1.05; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.04em; }
+    h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+    p.lead { font-size: 1.1rem; line-height: 1.7; color: var(--gray-light); margin-bottom: 2.5rem; max-width: 550px; font-weight: 500; }
+    .section-dark p.lead { color: #a5a5a5; }
+    
     /* Hero */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 5rem; position: relative; }
-    .hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.1; letter-spacing: -0.04em; margin: 1rem 0 1.5rem; max-width: 900px; }
-    .hero p.lede { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: linear-gradient(to right, #f4ecd8, #e8dfcf); }
+    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; width: 100%; padding-top: 100px; }
+    .hero-content { position: relative; z-index: 2; padding-bottom: 4rem; }
+    .hero-image-wrapper { position: relative; height: 85vh; display: flex; justify-content: flex-end; align-items: flex-end; }
+    .hero-image { max-height: 100%; object-fit: contain; z-index: 1; margin-right: -10%; }
     
-    .actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.8rem; border-radius: 99px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; }
-    .btn-primary { background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); color: #fff; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
-    .btn-primary:hover { box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); transform: translateY(-2px); }
-    .btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--surface-border); }
-    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-2px); }
-
-    /* Sections */
-    section { padding: 8rem 0; border-top: 1px solid var(--surface-border); position: relative; }
-    .section-head { margin-bottom: 4rem; }
-    .section-head h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.03em; max-width: 800px; }
-    .section-head p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; }
-
-    /* Bento grid */
-    .bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .bento-card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 20px; padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
-    .bento-card:hover { transform: translateY(-5px); border-color: var(--accent-1); box-shadow: 0 10px 30px var(--glow); }
-    .bento-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent-1), var(--accent-3)); opacity: 0; transition: 0.3s; }
-    .bento-card:hover::before { opacity: 1; }
+    .hero-note-1 { top: 20%; left: -20px; text-align: left; }
+    .hero-note-2 { top: 35%; right: 10%; text-align: left; }
     
-    .fact-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block; }
-    .fact-value { font-size: 1.2rem; font-weight: 600; color: var(--text-main); }
-
-    /* Projects */
-    .project-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-    .project-card { display: grid; grid-template-columns: auto 1fr auto; gap: 2.5rem; align-items: start; background: var(--surface); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--surface-border); transition: all 0.3s; }
-    .project-card:hover { border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
-    .project-num { font-size: 1.2rem; font-weight: 700; color: var(--surface-border); -webkit-text-stroke: 1px var(--text-muted); }
-    .project-card:hover .project-num { color: var(--accent-2); -webkit-text-stroke: 0; }
-    .project-info h3 { font-size: 1.8rem; margin: 0 0 1rem; }
-    .project-info p { color: var(--text-muted); margin: 0 0 1.5rem; max-width: 600px; }
-    .project-meta { font-size: 0.85rem; color: #a1a1aa; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .project-meta span { background: rgba(255,255,255,0.05); padding: 0.3rem 0.8rem; border-radius: 99px; }
-    .project-link { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--bg); border: 1px solid var(--surface-border); transition: 0.3s; }
-    .project-card:hover .project-link { background: var(--accent-1); color: #fff; border-color: var(--accent-1); transform: rotate(45deg); }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 2rem; border-left: 1px solid var(--surface-border); }
-    .timeline-item { position: relative; margin-bottom: 3rem; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.2rem; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent-1); transition: 0.3s; }
-    .timeline-item:hover::before { background: var(--accent-1); box-shadow: 0 0 10px var(--accent-1); }
-    .timeline-time { display: block; font-size: 0.85rem; color: var(--accent-1); font-family: 'DM Mono', monospace; margin-bottom: 0.5rem; }
-    .timeline-title { font-size: 1.3rem; margin: 0 0 0.2rem; }
-    .timeline-org { color: var(--text-muted); font-weight: 500; margin: 0 0 1rem; }
-
-    /* Footer */
-    .contact-cta { text-align: center; background: linear-gradient(to bottom, var(--surface), var(--bg)); padding: 6rem 0; border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border); border-radius: 32px; margin-bottom: 4rem; }
-    .contact-cta h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
-    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
-    .social-links a { display: inline-flex; padding: 0.8rem 1.5rem; border-radius: 99px; background: rgba(255,255,255,0.05); transition: 0.3s; border: 1px solid transparent; }
-    .social-links a:hover { background: rgba(99, 102, 241, 0.1); color: #fff; border-color: var(--accent-1); }
+    /* About Section */
+    .about { padding: 10rem 0; }
+    .about .container { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+    .about-image-box { background: #1a1c1d; padding: 2.5rem; border-radius: 4px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .about-image { width: 100%; display: block; filter: grayscale(80%) contrast(1.1); }
+    .about-note { top: 15%; right: -180px; }
+    .features { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2.5rem; }
+    .feature { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .feature-icon { width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; background: rgba(255,255,255,0.03); }
+    .feature-text { font-size: 0.85rem; font-weight: 600; line-height: 1.3; color: #ccc; }
     
-    footer { display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem; color: var(--text-muted); font-size: 0.9rem; }
-
-    /* Animations */
-    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 900px) {
-      .project-card { grid-template-columns: 1fr; gap: 1.5rem; }
-      .project-card .project-link { justify-self: start; }
+    /* Projects Section */
+    .projects { padding: 10rem 0; }
+    .project-header { margin-bottom: 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .project-card { background: #151718; border-radius: 20px; padding: 3.5rem; color: var(--text-dark); display: flex; flex-direction: column; justify-content: space-between; min-height: 450px; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+    .project-card:hover { transform: translateY(-10px); }
+    .project-card.light { background: #ffffff; color: var(--text-light); box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+    .project-card h3 { font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .project-card p { opacity: 0.7; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 400px; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .tag { padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: rgba(255,255,255,0.08); }
+    .project-card.light .tag { background: rgba(0,0,0,0.05); }
+    
+    /* Skills Section */
+    .skills { padding: 10rem 0; text-align: left; }
+    .skills .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+    .skill-col h4 { font-size: 1.3rem; margin-bottom: 1.5rem; color: #fff; }
+    .skill-col ul { display: flex; flex-direction: column; gap: 1rem; color: #888; font-size: 1rem; }
+    
+    /* Journey Section */
+    .journey { padding: 10rem 0; background: #f8f6f0; }
+    .journey .container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: center; }
+    .timeline { position: relative; padding-left: 3rem; margin-top: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 0; width: 1px; background: #d0d0d0; }
+    .timeline-item { position: relative; margin-bottom: 4rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 0; width: 12px; height: 12px; border-radius: 50%; background: #f8f6f0; border: 2px solid var(--text-light); }
+    .timeline-year { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
+    .timeline-content { color: var(--gray-light); font-size: 1rem; line-height: 1.6; max-width: 400px; }
+    .timeline-content strong { color: var(--text-light); display: block; margin-bottom: 0.25rem; font-size: 1.1rem; }
+    
+    /* Contact Section */
+    .contact { padding: 10rem 0; position: relative; overflow: hidden; }
+    .contact .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .contact-box { border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 1rem 2rem; display: inline-flex; align-items: center; gap: 1rem; margin-bottom: 1rem; cursor: pointer; transition: 0.3s; width: fit-content; }
+    .contact-box:hover { background: rgba(255,255,255,0.05); }
+    
+    @media (max-width: 992px) {
+      .hero .container, .about .container, .journey .container, .contact .container, .skills .container { grid-template-columns: 1fr; gap: 4rem; }
+      .hero-image-wrapper { height: 500px; justify-content: center; }
+      .hero-image { margin-right: 0; }
+      .hero-note-1, .hero-note-2, .about-note { display: none; }
+      .project-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
-      .footer { flex-direction: column; gap: 1rem; text-align: center; }
+      h1 { font-size: 4rem; }
+      h2 { font-size: 3rem; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-gradient"></div>
-  
-  <nav>
-    <div class="wrap nav-inner">
-      <a class="mark gradient-text-accent" href="#top">PT / 26</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#experience">Experience</a></li>
-      </ul>
-      <a class="contact-link" href="#contact">Let’s talk</a>
-    </div>
-  </nav>
 
-  <main id="top">
-    <div class="wrap hero">
-      <span class="mono kicker fade-in">Priyanshu Tiwari · Greater Noida, India</span>
-      <h1 class="fade-in delay-1">I build useful systems where <span class="gradient-text-accent">AI, product, and engineering</span> meet.</h1>
-      <p class="lede fade-in delay-2">Computer Science student and full-stack engineer focused on reliable AI-driven applications, backend architecture, and secure digital products.</p>
-      <div class="actions fade-in delay-3">
-        <a class="btn btn-primary" href="#work">Explore my work</a>
-        <a class="btn btn-secondary" href="mailto:official.priyanshu.37@gmail.com">Email me</a>
+  <!-- HERO SECTION -->
+  <section class="section-light hero">
+    <nav>
+      <div class="logo">Priyanshu</div>
+      <div class="nav-links">
+        <a href="#about">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <div class="hero-content">
+        <span class="kicker">AI Engineer • Builder • Problem Solver</span>
+        <h1>I build<br>products<br>that think.</h1>
+        <p class="lead">Turning ideas into real-world solutions through AI, technology, and a deep curiosity for impact.</p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#projects" class="btn btn-solid-dark">Explore My Work →</a>
+          <a href="/resume.pdf" class="btn btn-outline-dark" target="_blank">Download CV</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="handwriting hero-note-1">Same<br>Curiosity<br>Bigger<br>Impact</div>
+        <div class="handwriting hero-note-2">A<br>Better<br>You<br>A<br>Brighter<br>Tomorrow</div>
+        <img src="assets/priyanshu-tiwari.png" alt="Priyanshu Tiwari" class="hero-image">
       </div>
     </div>
+  </section>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="mono kicker">01 / Perspective</span>
-          <h2 class="gradient-text">Engineering is only valuable when it makes a system clearer, safer, or easier to use.</h2>
-        </div>
-        <div class="bento">
-          <div class="bento-card">
-            <span class="fact-label">Profile</span>
-            <span class="fact-value">I’m Priyanshu, a B.Tech CS student at GL Bajaj Institute. I enjoy turning complex domains into products with thoughtful workflows and sturdy foundations.</span>
-          </div>
-          <div class="bento-card">
-            <span class="fact-label">Education</span>
-            <span class="fact-value">B.Tech, Computer Science<br>GL Bajaj Institute (2023–2027)</span>
-          </div>
-          <div class="bento-card">
-            <span class="fact-label">Academics</span>
-            <span class="fact-value">CGPA: 8.608<br>Based in Greater Noida, U.P.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="mono kicker">02 / Selected Work</span>
-          <h2 class="gradient-text">Projects framed by the problem they solve.</h2>
-          <p>Each project foregrounds the system and implementation, rather than hiding useful detail behind a carousel.</p>
-        </div>
-        <div class="project-grid">
-          
-          <article class="project-card">
-            <div class="project-num mono">01</div>
-            <div class="project-info">
-              <h3>Swastha Parivar</h3>
-              <p>A healthcare ecosystem connecting families and medical professionals through real-time health tracking, appointment scheduling, telemedicine, and role-specific access.</p>
-              <div class="project-meta">
-                <span>React</span><span>Node.js</span><span>Healthcare UI</span>
-              </div>
-            </div>
-            <a href="https://swastha-parivar-ten.vercel.app/" target="_blank" rel="noreferrer" class="project-link" aria-label="Visit Swastha Parivar">↗</a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-num mono">02</div>
-            <div class="project-info">
-              <h3>Study Buddy</h3>
-              <p>An EdTech companion with a student dashboard, learning modules, progress tracking, and an interface designed around the day-to-day study workflow.</p>
-              <div class="project-meta">
-                <span>MERN Stack</span><span>EdTech</span><span>UI/UX</span>
-              </div>
-            </div>
-            <a href="https://study-buddy-frontend-kappa.vercel.app/" target="_blank" rel="noreferrer" class="project-link" aria-label="Visit Study Buddy">↗</a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-num mono">03</div>
-            <div class="project-info">
-              <h3>Chanakya — Railway AI</h3>
-              <p>A rail-network system modelled as a weighted directed graph, designed to recompute paths dynamically and minimise cascade delays as conditions change.</p>
-              <div class="project-meta">
-                <span>Python</span><span>AI/ML</span><span>Distributed Systems</span>
-              </div>
-            </div>
-            <a href="https://chanakya-psi.vercel.app/" target="_blank" rel="noreferrer" class="project-link" aria-label="Visit Chanakya">↗</a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-num mono">04</div>
-            <div class="project-info">
-              <h3>Financial Threat Monitor</h3>
-              <p>An anomaly-detection system for financial risk, combining a Random Forest classifier with Isolation Forest methods and an analyst-facing dashboard.</p>
-              <div class="project-meta">
-                <span>Python</span><span>Scikit-learn</span><span>Streamlit</span>
-              </div>
-            </div>
-            <span class="project-link" style="opacity: 0.3; cursor: not-allowed;" aria-label="No link available">↗</span>
-          </article>
-
-          <article class="project-card">
-            <div class="project-num mono">05</div>
-            <div class="project-info">
-              <h3>Health Nexus</h3>
-              <p>A multi-role healthcare platform that pairs secure routing and relational data with automated monitoring for changes in patient vitals.</p>
-              <div class="project-meta">
-                <span>MySQL</span><span>Node.js</span><span>AI Analytics</span>
-              </div>
-            </div>
-            <a href="https://care-vista.vercel.app/" target="_blank" rel="noreferrer" class="project-link" aria-label="Visit Health Nexus">↗</a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="capabilities">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="mono kicker">03 / Capability Map</span>
-          <h2 class="gradient-text">Technical breadth, organised around how systems fit together.</h2>
-        </div>
-        <div class="bento">
-          <div class="bento-card">
-            <span class="fact-label">Experience Layer</span>
-            <span class="fact-value">React.js, JavaScript, UI/UX</span>
-            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">Clear interfaces that make complex systems usable.</p>
-          </div>
-          <div class="bento-card">
-            <span class="fact-label">Application Layer</span>
-            <span class="fact-value">Node.js, MERN stack, JWT / RBAC</span>
-            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">Full-stack workflows, identity, and service logic.</p>
-          </div>
-          <div class="bento-card">
-            <span class="fact-label">Intelligence Layer</span>
-            <span class="fact-value">Python, Scikit-learn, AI / ML</span>
-            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">Models where prediction or anomaly detection helps.</p>
-          </div>
-          <div class="bento-card">
-            <span class="fact-label">Reliability Layer</span>
-            <span class="fact-value">MySQL, Docker, Cybersecurity</span>
-            <p style="color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">Data, security, and deployment fundamentals.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="mono kicker">04 / Experience & Credentials</span>
-          <h2 class="gradient-text">Hands-on work, leadership, and a bias toward building.</h2>
-        </div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section-dark about">
+    <div class="container">
+      <div>
+        <span class="kicker">01 . About</span>
+        <h2>A curious mind<br>and a builder at heart.</h2>
+        <p class="lead">I'm a Computer Science student who loves building AI-powered products, exploring new technologies, and creating solutions that make a real impact. I enjoy working at the intersection of technology, creativity, and strategy.</p>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
-          <div>
-            <h3 style="margin-bottom: 2rem;">Experience</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <span class="timeline-time">Jul 2025 — Sep 2025</span>
-                <h4 class="timeline-title">Software Dev Intern — MERN</h4>
-                <p class="timeline-org">SoftPro India</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Developed modules for a Hospital Information System: appointment management, feedback features, role-based authentication, secure routing, and automated record workflows.</p>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-time">Jul 2025 — Present</span>
-                <h4 class="timeline-title">Joint Secretary</h4>
-                <p class="timeline-org">Rotaract Club of GL Bajaj</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Organising campus events and student initiatives. Recognised as Emerging Leader (2024) for leadership contributions.</p>
-              </div>
-            </div>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">💡</div>
+            <div class="feature-text">Problem<br>Solver</div>
           </div>
-
-          <div>
-            <h3 style="margin-bottom: 2rem;">Continued Learning</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <span class="timeline-time">Jan 2026</span>
-                <h4 class="timeline-title">AI / ML Foundations</h4>
-                <p class="timeline-org">DeepLearning.AI & Stanford</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Supervised Machine Learning: Regression & Classification</p>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-time">Security & Cloud</span>
-                <h4 class="timeline-title">AWS & Palo Alto Networks</h4>
-                <p class="timeline-org">Certifications & Courses</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">AWS Cloud Foundations; cybersecurity, network security, and cloud security fundamentals.</p>
-              </div>
-              <div class="timeline-item">
-                <span class="timeline-time">Cybersecurity</span>
-                <h4 class="timeline-title">Cisco, CBTP, IBM & Infosys</h4>
-                <p class="timeline-org">Certifications & Internships</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Cybersecurity Essentials, Certified Blue Team Practitioner, AI/ML internship.</p>
-              </div>
-            </div>
+          <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-text">Continuous<br>Learner</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" style="padding-bottom: 4rem;">
-      <div class="wrap">
-        <div class="contact-cta">
-          <span class="mono kicker">05 / Contact</span>
-          <h2 class="gradient-text">Have a product problem<br>worth solving?</h2>
-          <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">I’m open to internships, full-time roles, and conversations about thoughtful software systems.</p>
-          <a href="mailto:official.priyanshu.37@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">Get in touch</a>
-          
-          <div class="social-links mono">
-            <a href="https://linkedin.com/in/priyanshu-tiwari-pds37" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/pds-37" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://leetcode.com/u/Mrpds-37" target="_blank" rel="noreferrer">LeetCode</a>
+          <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <div class="feature-text">Product<br>Thinker</div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🚀</div>
+            <div class="feature-text">Impact<br>Driven</div>
           </div>
         </div>
         
-        <footer class="footer">
-          <span>Designed and built by Priyanshu Tiwari</span>
-          <span class="mono">© 2026</span>
-        </footer>
+        <div style="margin-top: 4rem;">
+          <a href="#journey" class="btn btn-outline-light" style="border-radius: 50px;">Know More About Me →</a>
+        </div>
       </div>
-    </section>
-  </main>
+      
+      <div style="position: relative;">
+        <div class="about-image-box">
+          <img src="assets/priyanshu-tiwari.png" alt="Priyanshu" class="about-image">
+          <div style="text-align: center; margin-top: 1.5rem;">
+            <h3 style="letter-spacing: 2px; font-size: 1.2rem; text-transform: uppercase;">Priyanshu</h3>
+            <p style="font-size: 0.75rem; color: #888; letter-spacing: 1px; margin-top: 0.5rem;">ENGINEER • BUILDER • PROBLEM SOLVER</p>
+          </div>
+        </div>
+        <div class="handwriting dark about-note">Ideas<br>Technology<br>People<br>Impact<br>↙</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section-light projects">
+    <div class="container">
+      <div class="project-header">
+        <div>
+          <span class="kicker">02 . Projects</span>
+          <h2>Products<br>I've built.</h2>
+          <p class="lead" style="margin-bottom: 0;">A collection of projects that reflect my interests in AI, software development, and real-world problem solving.</p>
+        </div>
+        <div>
+          <a href="https://github.com/pds-37" target="_blank" class="btn btn-solid-dark">View All Projects →</a>
+        </div>
+      </div>
+      
+      <div class="project-grid">
+        <div class="project-card">
+          <div>
+            <h3>ContextMind / Chanakya</h3>
+            <p>An AI-powered knowledge assistant & dynamic rail-network router. Built to recompute paths and answer queries dynamically using LLMs and vector search.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">AI/ML</span>
+              <span class="tag">Distributed Systems</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://chanakya-psi.vercel.app/" target="_blank" class="btn btn-solid-light">View Project →</a>
+          </div>
+        </div>
+        
+        <div class="project-card light">
+          <div>
+            <h3>Swastha Parivar</h3>
+            <p>A healthcare ecosystem connecting families and medical professionals through real-time health tracking, appointment scheduling, and telemedicine.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Healthcare UI</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://swastha-parivar-ten.vercel.app/" target="_blank" class="btn btn-solid-dark">View Project →</a>
+          </div>
+        </div>
+        
+        <div class="project-card light">
+          <div>
+            <h3>Study Buddy</h3>
+            <p>An EdTech companion with a student dashboard, learning modules, progress tracking, and an interface designed around the day-to-day study workflow.</p>
+            <div class="tags">
+              <span class="tag">MERN Stack</span>
+              <span class="tag">EdTech</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://study-buddy-frontend-kappa.vercel.app/" target="_blank" class="btn btn-solid-dark">View Project →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>Health Nexus</h3>
+            <p>A multi-role healthcare platform that pairs secure routing and relational data with automated monitoring for changes in patient vitals.</p>
+            <div class="tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">AI Analytics</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://care-vista.vercel.app/" target="_blank" class="btn btn-solid-light">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section-dark skills">
+    <div class="container">
+      <div>
+        <span class="kicker">04 . Skills</span>
+        <h2>A toolkit<br>for what's next.</h2>
+        <p class="lead">Technologies I use to turn ideas into products. I'm always learning and exploring new tools.</p>
+        
+        <div style="margin-top: 4rem;">
+          <a href="https://github.com/pds-37" target="_blank" class="btn btn-outline-light">Explore My Skills →</a>
+        </div>
+        <p style="margin-top: 4rem; opacity: 0.4; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;">Tools I work with —</p>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-col">
+          <h4>AI / ML</h4>
+          <ul>
+            <li>Python</li>
+            <li>Scikit-learn</li>
+            <li>Generative AI</li>
+            <li>Vector Databases</li>
+            <li>Data Analysis</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React.js</li>
+            <li>Next.js</li>
+            <li>JavaScript / TS</li>
+            <li>Tailwind CSS</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>REST APIs</li>
+            <li>JWT / RBAC</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h4>Data & Cloud</h4>
+          <ul>
+            <li>MySQL</li>
+            <li>MongoDB</li>
+            <li>Docker</li>
+            <li>AWS Foundations</li>
+            <li>Cybersecurity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY SECTION -->
+  <section id="journey" class="section-light journey">
+    <div class="container">
+      <div>
+        <span class="kicker">05 . Journey</span>
+        <h2>A path of<br>continuous growth.</h2>
+        <p class="lead">Key milestones, experiences, and learnings that have shaped my journey.</p>
+        <div style="margin-top: 3rem;">
+          <a href="https://linkedin.com/in/priyanshu-tiwari-pds37" target="_blank" class="btn btn-outline-dark">View Full Timeline →</a>
+        </div>
+      </div>
+      
+      <div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">2026</span>
+            <div class="timeline-content">
+              <strong>Looking ahead to bigger impact</strong>
+              DeepLearning.AI & Stanford: Supervised Machine Learning. AWS & Security Foundations.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2025</span>
+            <div class="timeline-content">
+              <strong>Software Dev Intern & Leadership</strong>
+              Developed MERN modules for a Hospital Information System. Appointed Joint Secretary of Rotaract Club.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2024</span>
+            <div class="timeline-content">
+              <strong>Built and shipped real projects</strong>
+              Developed platforms like Swastha Parivar, Study Buddy, and Chanakya.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2023</span>
+            <div class="timeline-content">
+              <strong>Started my CS journey</strong>
+              B.Tech in Computer Science at GL Bajaj Institute of Technology.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section-dark contact">
+    <div class="container">
+      <div>
+        <span class="kicker">06 . Contact</span>
+        <h2>Let's build<br>something meaningful.</h2>
+        <p class="lead">I'm always open to discussing new opportunities, interesting ideas, or potential collaborations.</p>
+        
+        <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem;">
+          <a href="mailto:official.priyanshu.37@gmail.com" class="contact-box">
+            <span style="font-size: 1.2rem; opacity: 0.7;">✉</span>
+            <span>official.priyanshu.37@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com/in/priyanshu-tiwari-pds37" target="_blank" class="contact-box">
+            <span style="font-size: 1.2rem; opacity: 0.7;">in</span>
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+      </div>
+      
+      <div style="position: relative; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div class="handwriting dark" style="transform: rotate(-10deg);">Good ideas<br>can come from<br>anywhere.<br>↘</div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
