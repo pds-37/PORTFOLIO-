@@ -226,62 +226,40 @@ export default function Home() {
       </section>
 
       {/* 4. SKILLS SECTION (DARK) */}
-      <section id="skills" className="w-full bg-[#0A0A0A] text-white px-6 md:px-12 lg:px-24 py-32 dark-section relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-6 block">
-              04 . Skills
+      <section id="skills" className="w-full bg-[#101213] text-white px-6 md:px-12 lg:px-24 py-32 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="relative z-10 flex flex-col items-start lg:pr-10">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a09e96] mb-6 block">
+              04 . SKILLS
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8 drop-shadow-lg">
               A toolkit <br/> for what's next.
             </h2>
-            <p className="text-lg text-neutral-400 mb-12 max-w-md leading-relaxed">
+            <p className="text-[1.05rem] text-[#b3b3b3] mb-12 max-w-sm leading-relaxed font-medium">
               Technologies I use to turn ideas into products. I'm always learning and exploring new tools.
             </p>
-            <Link href="https://github.com/pds-37" target="_blank" className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-white hover:text-black transition">
-              Explore My Skills <ArrowRight className="w-4 h-4" />
+            <Link href="/skills" className="inline-flex items-center gap-4 border border-[#443F38] bg-[#0A0A0A]/50 backdrop-blur-sm text-white px-8 py-4 rounded-xl hover:bg-white/5 transition w-fit">
+              <span className="font-semibold text-sm">Explore My Skills</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
             
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-600 mt-16">
-              Tools I work with — VS Code, Git, Figma
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-600 mt-20 flex items-center gap-4">
+              Tools I work with 
+              <span className="w-8 h-[1px] bg-neutral-600 block"></span>
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-12 relative z-10">
-             {/* We mimic the cube visually using structural glass cards */}
-             <div className="flex flex-col gap-4">
-               <h3 className="text-xl font-semibold mb-2 border-b border-white/10 pb-4">Backend</h3>
-               <ul className="text-neutral-400 space-y-3 font-medium">
-                 <li>Node.js</li>
-                 <li>Express</li>
-                 <li>Python</li>
-                 <li>REST APIs</li>
-               </ul>
-             </div>
-             <div className="flex flex-col gap-4 mt-12">
-               <h3 className="text-xl font-semibold mb-2 border-b border-white/10 pb-4">AI / ML</h3>
-               <ul className="text-neutral-400 space-y-3 font-medium">
-                 <li>Scikit-learn</li>
-                 <li>TensorFlow</li>
-                 <li>Vector DBs</li>
-                 <li>LLMs</li>
-               </ul>
-             </div>
-             <div className="flex flex-col gap-4">
-               <h3 className="text-xl font-semibold mb-2 border-b border-white/10 pb-4">Data</h3>
-               <ul className="text-neutral-400 space-y-3 font-medium">
-                 <li>MySQL</li>
-                 <li>MongoDB</li>
-                 <li>PostgreSQL</li>
-               </ul>
-             </div>
-             <div className="flex flex-col gap-4 mt-12">
-               <h3 className="text-xl font-semibold mb-2 border-b border-white/10 pb-4">Frontend</h3>
-               <ul className="text-neutral-400 space-y-3 font-medium">
-                 <li>React.js</li>
-                 <li>Next.js</li>
-                 <li>Tailwind CSS</li>
-               </ul>
+          <div className="relative h-[400px] sm:h-[500px] lg:h-[700px] w-full flex items-center justify-center -ml-10 lg:-ml-20">
+             {/* Using the uploaded image for the 3D cube */}
+             <div className="w-[150%] sm:w-[130%] h-full relative">
+               <Image 
+                 src="/skills-cube.png" 
+                 alt="Skills 3D Cube" 
+                 fill
+                 className="object-cover object-right-center lg:object-right scale-110 drop-shadow-2xl mix-blend-screen"
+               />
+               <div className="absolute inset-0 bg-gradient-to-r from-[#101213] via-transparent to-transparent z-10"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-[#101213] via-transparent to-transparent z-10"></div>
              </div>
           </div>
         </div>
