@@ -2,127 +2,254 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, ArrowLeft, Download, Mail, Lightbulb, BookOpen, Box, Target } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="w-full flex flex-col min-h-screen">
       
-      {/* 1. HERO SECTION (LIGHT) */}
-      <section className="relative w-full min-h-screen bg-brand-light text-neutral-900 overflow-hidden flex flex-col px-6 md:px-12 lg:px-24">
-        <nav className="w-full py-8 flex justify-between items-center z-50">
-          <div className="text-xl font-bold tracking-widest uppercase">Priyanshu</div>
-          <div className="hidden md:flex gap-8 text-sm font-semibold tracking-wide">
-            <Link href="#about" className="hover:opacity-60 transition">Home</Link>
-            <Link href="#about" className="hover:opacity-60 transition">About</Link>
-            <Link href="#projects" className="hover:opacity-60 transition">Projects</Link>
-            <Link href="#skills" className="hover:opacity-60 transition">Skills</Link>
-            <Link href="#journey" className="hover:opacity-60 transition">Journey</Link>
-            <Link href="#contact" className="hover:opacity-60 transition">Contact</Link>
+      {/* 1. HERO SECTION */}
+      <section id="home" className="relative h-screen min-h-screen overflow-hidden bg-[#07090a] text-[#f4f1eb] isolate">
+        
+        {/* The Background Image */}
+        <img 
+          src="/hero-bg.png" 
+          alt="" 
+          aria-hidden="true" 
+          className="absolute inset-0 w-full h-full object-cover object-[63%_center] md:object-center -z-40" 
+        />
+
+        {/* Left side gradient overlay to ensure HTML text is readable */}
+        <div 
+          className="absolute inset-0 -z-30" 
+          style={{ background: "linear-gradient(90deg, rgba(5,7,8,.18) 0%, rgba(5,7,8,.10) 45%, rgba(5,7,8,.04) 100%)" }}
+        ></div>
+
+        {/* Cinematic bottom fade */}
+        <div 
+          className="absolute left-0 right-0 bottom-0 h-[34%] -z-20 pointer-events-none" 
+          style={{ background: "linear-gradient(to top, rgba(4,5,6,.82), transparent)" }}
+        ></div>
+
+        {/* Navigation */}
+        <nav className="absolute top-0 left-0 right-0 h-[72px] md:h-[88px] px-6 md:px-[5vw] flex items-center justify-between z-20">
+          <div className="text-white text-[14px] md:text-[16px] font-bold tracking-[0.2px]">
+            PRIYANSHU
           </div>
+
+          <div className="hidden lg:flex items-center gap-[32px]">
+            <Link href="#home" className="relative text-white/80 text-[12px] font-medium transition hover:text-white after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-[9px] after:h-[1px] after:bg-[#d8b584]">Home</Link>
+            <Link href="#about" className="relative text-white/80 text-[12px] font-medium transition hover:text-white">About</Link>
+            <Link href="#projects" className="relative text-white/80 text-[12px] font-medium transition hover:text-white">Projects</Link>
+            <Link href="#skills" className="relative text-white/80 text-[12px] font-medium transition hover:text-white">Skills</Link>
+            <Link href="#journey" className="relative text-white/80 text-[12px] font-medium transition hover:text-white">Journey</Link>
+            <Link href="#contact" className="relative text-white/80 text-[12px] font-medium transition hover:text-white">Contact</Link>
+          </div>
+
+          <Link href="#contact" className="border-0 bg-[#f4ece1] text-[#111] px-[16px] py-[11px] md:px-[21px] md:py-[13px] rounded-full text-[11px] md:text-[12px] font-semibold transition hover:-translate-y-[2px] hover:bg-white inline-flex items-center">
+            Let&apos;s Talk <span className="ml-2 font-serif leading-none mt-[-1px]">&rarr;</span>
+          </Link>
         </nav>
 
-        <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 pt-10 pb-20">
-          <div className="flex flex-col z-20">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-6">
-              AI Engineer • Builder • Problem Solver
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-bold mb-6 tracking-tight text-neutral-900">
-              I build <br /> products <br /> that think.
-            </h1>
-            <p className="text-lg md:text-xl text-neutral-600 max-w-md mb-10 font-medium leading-relaxed">
-              Turning ideas into real-world solutions through AI, technology, and a deep curiosity for impact.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="#projects" className="flex items-center gap-2 bg-neutral-900 text-brand-light px-8 py-4 rounded-full font-semibold text-sm hover:bg-neutral-800 transition">
-                Explore My Work <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href="/resume.pdf" target="_blank" className="flex items-center gap-2 bg-transparent border border-neutral-900 text-neutral-900 px-8 py-4 rounded-full font-semibold text-sm hover:bg-neutral-900 hover:text-brand-light transition">
-                Download CV
-              </a>
-            </div>
-          </div>
+        {/* MAIN TEXT LAYER */}
+        <div className="absolute left-[22px] right-[22px] top-[48%] md:left-[6%] md:top-[50%] -translate-y-1/2 md:w-[min(600px,48vw)] z-10">
           
-          <div className="relative h-[600px] lg:h-[800px] w-full flex justify-end items-end z-10">
-            {/* Handwritten Notes */}
-            <div className="font-handwriting text-3xl md:text-4xl absolute top-10 left-0 md:-left-10 -rotate-6 text-neutral-800 leading-tight">
-              Same <br/> Curiosity <br/> Bigger <br/> Impact <br/> ↘
-            </div>
-            <div className="font-handwriting text-3xl md:text-4xl absolute top-32 right-10 rotate-3 text-neutral-800 text-right leading-tight z-20">
-              A <br/> Better <br/> You <br/> A <br/> Brighter <br/> Tomorrow
-            </div>
-            
-            <Image 
-              src="/priyanshu-hero.png" 
-              alt="Priyanshu" 
-              width={700} 
-              height={900} 
-              className="object-contain max-h-[90%] w-auto relative z-10 drop-shadow-2xl"
-              priority
-            />
+          <div className="mb-[20px] text-[10px] font-medium tracking-[3.5px] uppercase text-[#d9bb91]">
+            Engineer &#183; Builder &#183; Problem Solver
           </div>
-        </div>
-      </section>
 
+          <h1 className="text-[clamp(48px,14vw,76px)] md:text-[clamp(55px,6.4vw,104px)] leading-[0.94] tracking-[-3px] md:tracking-[-5px] font-bold text-[#f5f3ef]">
+            Turning Ideas<br/>
+            Into <span className="text-[#d8b584]">Real Impact.</span>
+          </h1>
+
+          <p className="w-[min(490px,100%)] mt-[24px] text-[#c2c2bd] text-[13px] md:text-[15px] leading-[1.65] max-w-[360px] md:max-w-none">
+            I build AI-powered products that solve real problems
+            and create meaningful experiences through technology,
+            curiosity, and continuous learning.
+          </p>
+
+          <div className="flex flex-wrap md:flex-nowrap items-center gap-[14px] mt-[30px]">
+            
+            <Link href="#projects" className="inline-flex items-center justify-center gap-[15px] min-h-[45px] px-[20px] rounded-full text-[12px] font-semibold bg-[#f4ece1] text-[#111] transition hover:-translate-y-[2px]">
+              Explore My Work
+              <span className="font-serif leading-none">&rarr;</span>
+            </Link>
+
+            <a href="/resume.pdf" target="_blank" className="inline-flex items-center justify-center gap-[15px] min-h-[45px] px-[20px] rounded-full text-[12px] font-semibold border border-white/30 text-white bg-black/10 backdrop-blur-[8px] transition hover:-translate-y-[2px]">
+              Download CV
+              <span className="font-serif leading-none">&darr;</span>
+            </a>
+
+            <div className="flex items-center gap-[10px] ml-[6px]">
+              <a href="https://linkedin.com/in/priyanshu-tiwari-pds37" target="_blank" rel="noreferrer" className="w-[34px] h-[34px] grid place-items-center border border-white/25 rounded-full text-white text-[10px] font-semibold transition hover:bg-white hover:text-[#111]">in</a>
+              <a href="https://github.com/pds-37" target="_blank" rel="noreferrer" className="w-[34px] h-[34px] grid place-items-center border border-white/25 rounded-full text-white text-[10px] font-semibold transition hover:bg-white hover:text-[#111]">GH</a>
+              <a href="mailto:official.priyanshu.37@gmail.com" className="w-[34px] h-[34px] grid place-items-center border border-white/25 rounded-full text-white text-[10px] font-semibold transition hover:bg-white hover:text-[#111]">@</a>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* HANDWRITTEN DESIGN ELEMENT */}
+        <div className="hidden lg:block absolute left-[48%] top-[24%] text-[#efe3d4] font-['Caveat',cursive] text-[25px] leading-[0.98] -rotate-[7deg] z-[12] pointer-events-none">
+          Same<br/>Curiosity<br/>Bigger<br/>Impact
+          <span className="block ml-[48px] mt-[4px] font-['Inter',sans-serif] text-[29px] rotate-[15deg]">&#8600;</span>
+        </div>
+
+        {/* RIGHT-SIDE MESSAGE */}
+        <div className="hidden lg:block absolute right-[4%] bottom-[95px] z-[15] text-white/60 font-['Caveat',cursive] text-[23px] leading-[0.95] -rotate-[4deg]">
+          Same<br/>Curiosity<br/>Bigger<br/>Impact
+        </div>
+
+        {/* BOTTOM INFORMATION */}
+        <div className="absolute left-[22px] right-[22px] md:left-[6%] md:right-[6%] bottom-[22px] md:bottom-[34px] flex flex-col md:flex-row md:items-center items-start gap-[18px] md:gap-0 z-[15]">
+          
+          <div className="flex items-center gap-[12px] md:mr-[58px] text-[#d2d1cc] text-[11px]">
+            <div className="relative w-[20px] h-[32px] border border-white/75 rounded-[12px]">
+              <div className="absolute left-1/2 top-[6px] w-[2px] h-[6px] -translate-x-1/2 bg-white"></div>
+            </div>
+            <span>Scroll to explore</span>
+          </div>
+
+          <div className="flex items-center w-full md:w-auto">
+            <div className="flex-1 md:flex-none min-w-0 md:min-w-[125px] px-[12px] md:px-[24px] pl-0 md:pl-0 border-l-0 border-white/20">
+              <strong className="block text-[#e0bc89] text-[13px] md:text-[16px] font-semibold mb-[3px]">3+</strong>
+              <span className="text-[#aaa9a5] text-[9px] md:text-[10px]">Projects</span>
+            </div>
+            <div className="flex-1 md:flex-none min-w-0 md:min-w-[125px] px-[12px] md:px-[24px] border-l border-white/20">
+              <strong className="block text-[#e0bc89] text-[13px] md:text-[16px] font-semibold mb-[3px]">AI/ML</strong>
+              <span className="text-[#aaa9a5] text-[9px] md:text-[10px]">Focus Area</span>
+            </div>
+            <div className="flex-1 md:flex-none min-w-0 md:min-w-[125px] px-[12px] md:px-[24px] border-l border-white/20">
+              <strong className="block text-[#e0bc89] text-[13px] md:text-[16px] font-semibold mb-[3px]">Always</strong>
+              <span className="text-[#aaa9a5] text-[9px] md:text-[10px]">Learning</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
       {/* 2. ABOUT SECTION (DARK) */}
-      <section id="about" className="w-full bg-brand-dark text-white px-6 md:px-12 lg:px-24 py-32 dark-section">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500 mb-6 block">
-              01 . About
+      <section id="about" className="w-full bg-[#0E1011] text-[#F4F4F5] px-6 md:px-12 lg:px-24 py-32 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div className="flex flex-col z-20">
+            <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-white/40 mb-6 block">
+              01 . ABOUT
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tight">
-              A curious mind <br/> and a builder at heart.
+            <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-bold leading-[1.05] tracking-tight mb-8">
+              A curious mind <br/> and a <span className="text-[#CBA583]">builder</span> at heart.
             </h2>
-            <p className="text-lg text-neutral-400 leading-relaxed mb-12 max-w-lg">
-              I'm a Computer Science student who loves building AI-powered products, exploring new technologies, and creating solutions that make a real impact. I enjoy working at the intersection of technology, creativity, and strategy.
+            <p className="text-base text-white/70 leading-relaxed mb-12 max-w-[420px] font-medium">
+              I&apos;m a Computer Science student who loves building AI-powered products, exploring new technologies, and creating solutions that make a real impact. I enjoy working at the intersection of technology, creativity, and strategy.
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 py-8 border-y border-white/5">
               {[
-                { icon: "💡", text: "Problem Solver" },
-                { icon: "🔄", text: "Continuous Learner" },
-                { icon: "🧠", text: "Product Thinker" },
-                { icon: "🚀", text: "Impact Driven" },
+                { icon: "??", text: "Problem Solver" },
+                { icon: "??", text: "Continuous Learner" },
+                { icon: "??", text: "Product Thinker" },
+                { icon: "??", text: "Impact Driven" },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col gap-3">
-                  <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center text-xl bg-white/5">
+                  <div className="text-xl opacity-70">
                     {item.icon}
                   </div>
-                  <span className="text-sm font-semibold text-neutral-300 leading-tight">
-                    {item.text.split(" ").map((word, j) => <span key={j}>{word}<br/></span>)}
+                  <span className="text-[0.6rem] font-bold uppercase tracking-wider text-white/80 leading-tight">
+                    {item.text.split(" ").map((word, j) => <span key={j} className="block">{word}</span>)}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12">
-              <Link href="#journey" className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-white hover:text-black transition">
+            <div>
+              <Link href="#journey" className="inline-flex items-center gap-3 border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-xs tracking-wide hover:bg-white hover:text-black transition-all">
                 Know More About Me <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
-          <div className="relative pl-0 lg:pl-10">
-            <div className="font-handwriting text-3xl md:text-4xl absolute -top-10 -right-10 md:-right-20 rotate-6 text-neutral-400 z-20">
-              Ideas <br/> Technology <br/> People <br/> Impact <br/> ↙
+          {/* Right Content - Statue/Portrait with Orbital Rings */}
+          <div className="relative w-full h-[600px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+            {/* Faint Text on far right */}
+            <div className="hidden lg:flex absolute -right-20 lg:-right-32 top-1/4 font-semibold text-4xl lg:text-5xl text-white/[0.03] leading-[1.2] flex-col items-start z-0 tracking-widest uppercase">
+              <span>Same</span>
+              <span>Curiosity</span>
+              <span>Bigger</span>
+              <span>Impact</span>
+              <div className="w-12 h-[2px] bg-white/[0.05] mt-4"></div>
             </div>
-            <div className="bg-[#151515] p-6 rounded-xl border border-white/5 relative z-10 shadow-2xl">
-              <Image 
-                src="/priyanshu-portrait.png" 
-                alt="Priyanshu Portrait" 
-                width={500} 
-                height={600} 
-                className="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-700" 
-              />
-              <div className="mt-6 text-center">
-                <h3 className="text-xl font-bold tracking-widest">PRIYANSHU</h3>
-                <p className="text-[0.65rem] tracking-[0.2em] text-neutral-500 mt-2 uppercase">
-                  Engineer • Builder • Problem Solver
+
+            {/* Simulated Orbital Rings */}
+            <div className="absolute top-[40%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] lg:w-[500px] lg:h-[500px] rounded-full border border-white/[0.1] z-0 rotate-[20deg]">
+              <div className="absolute -top-1 left-[20%] w-2 h-2 rounded-full bg-white/40 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+              <div className="absolute top-[80%] -right-1 w-1.5 h-1.5 rounded-full bg-white/20"></div>
+            </div>
+            
+            <div className="absolute top-[40%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[450px] lg:w-[300px] lg:h-[550px] rounded-full border border-white/[0.08] z-0 rotate-[-30deg]">
+              <div className="absolute top-[10%] -left-1 w-2 h-2 rounded-full bg-white/30"></div>
+              <div className="absolute bottom-[20%] -right-1 w-3 h-3 rounded-full bg-[#CBA583]/50 shadow-[0_0_15px_rgba(203,165,131,0.6)]"></div>
+            </div>
+            
+            {/* Orbital Text Labels */}
+            <div className="absolute top-[15%] left-[25%] lg:left-[20%] text-white text-xs lg:text-sm tracking-widest uppercase font-semibold z-10 drop-shadow-md">Ideas</div>
+            <div className="absolute bottom-[35%] lg:bottom-[30%] left-[5%] lg:left-[10%] text-white text-xs lg:text-sm tracking-widest uppercase font-semibold z-10 drop-shadow-md">People</div>
+            <div className="absolute top-[25%] right-[10%] text-white text-xs lg:text-sm tracking-widest uppercase font-semibold z-10 drop-shadow-md">Technology</div>
+            <div className="absolute bottom-[30%] lg:bottom-[20%] right-[5%] lg:right-[15%] text-white text-xs lg:text-sm tracking-widest uppercase font-semibold z-10 drop-shadow-md">Impact</div>
+
+            {/* Base Block & Portrait (Mimicking Statue) */}
+            <div className="relative z-20 flex flex-col items-center mt-0 lg:mt-20">
+              {/* Glowing Halo */}
+              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#CBA583]/10 rounded-full blur-[60px] -z-10"></div>
+              
+              <div className="w-56 h-72 lg:w-64 lg:h-80 relative overflow-hidden mask-image-bottom">
+                <Image 
+                  src="/priyanshu-portrait.png" 
+                  alt="Priyanshu Portrait" 
+                  fill
+                  className="object-cover object-top grayscale contrast-125 brightness-90" 
+                />
+              </div>
+              
+              {/* Stone Base Inscription */}
+              <div className="bg-[#18191B] border border-white/10 w-64 lg:w-72 p-6 flex flex-col items-center justify-center text-center shadow-2xl relative z-30 mt-[-15px]">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/40 leading-[1.8]">
+                  A BETTER <br/> YOU <br/> A BRIGHTER <br/> TOMORROW
                 </p>
+                {/* Secondary block behind */}
+                <div className="absolute -bottom-4 -right-4 lg:-right-8 w-20 h-20 lg:w-24 lg:h-24 bg-[#111214] border border-white/5 -z-10 shadow-xl"></div>
               </div>
             </div>
+          </div>
+        </div>
+        
+        {/* Bottom Bar matching Figma */}
+        <div className="absolute bottom-8 left-6 right-6 lg:left-24 lg:right-24 flex justify-between items-center z-30">
+          <div className="flex items-center gap-6 text-white/40">
+            <button className="hover:text-white transition"><ArrowLeft className="w-4 h-4" /></button>
+            <span className="text-[0.65rem] font-bold tracking-[0.2em]">01 / 04</span>
+            <button className="hover:text-white transition"><ArrowRight className="w-4 h-4" /></button>
+          </div>
+          
+          <div className="hidden md:flex items-center gap-4 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/40">
+            <div className="w-12 h-[1px] bg-white/20 mr-2"></div>
+            <span>IDEAS</span> <span className="opacity-50">&#8226;</span> <span>BUILD</span> <span className="opacity-50">&#8226;</span> <span>SOLVE</span> <span className="opacity-50">&#8226;</span> <span>REPEAT</span>
+            <div className="w-12 h-[1px] bg-white/20 ml-2"></div>
+          </div>
+          
+          <div className="flex items-center gap-6">
+             {/* Simple Lucide icons for social matching Figma */}
+             <a href="#" className="text-white/40 hover:text-white transition">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+             </a>
+             <a href="#" className="text-white/40 hover:text-white transition">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+             </a>
+             <a href="#" className="text-white/40 hover:text-white transition">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+             </a>
           </div>
         </div>
       </section>
@@ -136,7 +263,7 @@ export default function Home() {
                 02 . Projects
               </span>
               <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight">
-                Products <br/> I've built.
+                Products <br/> I&apos;ve built.
               </h2>
             </div>
             <p className="text-lg text-neutral-600 max-w-sm mb-2 font-medium">
@@ -177,7 +304,7 @@ export default function Home() {
                      </div>
                    </div>
                 </div>
-                <div className="font-handwriting text-2xl absolute -bottom-6 -right-6 rotate-[-10deg] text-neutral-400">
+                <div className="font-[Caveat,cursive] text-2xl absolute -bottom-6 -right-6 rotate-[-10deg] text-neutral-400">
                   Turn your <br/> information <br/> into insight.
                 </div>
               </div>
@@ -233,10 +360,10 @@ export default function Home() {
               04 . SKILLS
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8 drop-shadow-lg">
-              A toolkit <br/> for what's next.
+              A toolkit <br/> for what&apos;s next.
             </h2>
             <p className="text-[1.05rem] text-[#b3b3b3] mb-12 max-w-sm leading-relaxed font-medium">
-              Technologies I use to turn ideas into products. I'm always learning and exploring new tools.
+              Technologies I use to turn ideas into products. I&apos;m always learning and exploring new tools.
             </p>
             <Link href="/skills" className="inline-flex items-center gap-4 border border-[#443F38] bg-[#0A0A0A]/50 backdrop-blur-sm text-white px-8 py-4 rounded-xl hover:bg-white/5 transition w-fit">
               <span className="font-semibold text-sm">Explore My Skills</span>
@@ -322,10 +449,10 @@ export default function Home() {
               06 . Contact
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-              Let's build <br/> something meaningful.
+              Let&apos;s build <br/> something meaningful.
             </h2>
             <p className="text-[1.05rem] text-[#b3b3b3] mb-12 max-w-md leading-relaxed font-medium">
-              I'm always open to discussing new opportunities, interesting ideas, or potential collaborations.
+              I&apos;m always open to discussing new opportunities, interesting ideas, or potential collaborations.
             </p>
             
             <div className="flex flex-col gap-4">
@@ -343,7 +470,7 @@ export default function Home() {
           <div className="relative h-full min-h-[300px] flex flex-col justify-between items-end">
              {/* Handwritten Note */}
              <div className="w-full flex justify-center lg:justify-start pt-10 lg:pt-20 lg:pl-10">
-               <div className="font-handwriting text-[2rem] md:text-[2.5rem] -rotate-6 text-[#d9d9d9] leading-[1.1] opacity-90">
+               <div className="font-[Caveat,cursive] text-[2rem] md:text-[2.5rem] -rotate-6 text-[#d9d9d9] leading-[1.1] opacity-90">
                  Good ideas <br/> can come from <br/> anywhere.
                  <div className="w-12 h-[2px] bg-[#665F55] mt-6 ml-2 rounded-full"></div>
                </div>
