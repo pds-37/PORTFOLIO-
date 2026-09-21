@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd priyanshu_full_portfolio && npm install && npm run build",
+  "outputDirectory": "priyanshu_full_portfolio/dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
