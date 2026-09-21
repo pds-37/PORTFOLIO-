@@ -18,7 +18,7 @@ export default function Navbar({ active, setActive }) {
         ))}
       </nav>
       <div className="nav-actions">
-        <button className="talk" onClick={() => go("Contact")}>Let's Talk <ArrowRight size={15} /></button>
+        <a className="talk" href="mailto:official.priyanshu.37@gmail.com">Let's Talk <ArrowRight size={15} /></a>
         <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={19} /> : <Menu size={19} />}
         </button>
