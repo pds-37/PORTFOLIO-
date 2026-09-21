@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Mail, ArrowRight, Send, CheckCircle2, MapPin, Clock, User } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import SectionKicker from '../components/SectionKicker';
-import contactHeroBg from '../assets/contact-hero-bg.png';
 import priyanshuProfile from '../assets/priyanshu-profile.jpg';
 
 export default function Contact() {
@@ -55,79 +54,75 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="contact-art">
-        <img src={contactHeroBg} alt="Workspace 3D Visual" />
-        
-        {/* Animated Interactive Contact Form with Priyanshu Portrait */}
-        <div className="contact-form-overlay">
-          <form className="contact-form-box" onSubmit={handleSubmit}>
-            <div className="form-header">
-              <div className="profile-avatar-wrap">
-                <img src={priyanshuProfile} alt="Priyanshu Tiwari" className="profile-avatar" />
-                <span className="online-status-dot" title="Available for work" />
-              </div>
-              <div>
-                <h3>Send a Message</h3>
-                <p>Reach out directly to Priyanshu</p>
-              </div>
+      {/* Standalone Clean Interactive Contact Form Card */}
+      <div className="contact-form-container">
+        <form className="contact-form-card" onSubmit={handleSubmit}>
+          <div className="form-header">
+            <div className="profile-avatar-wrap">
+              <img src={priyanshuProfile} alt="Priyanshu Tiwari" className="profile-avatar" />
+              <span className="online-status-dot" title="Available for work" />
             </div>
-
-            <div className="form-row">
-              <div className="input-group">
-                <User size={13} className="input-icon" />
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="input-group">
-                <Mail size={13} className="input-icon" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+            <div>
+              <h3>Send a Message</h3>
+              <p>Reach out directly to Priyanshu</p>
             </div>
+          </div>
 
-            <div className="input-group text-group">
-              <textarea
-                name="message"
-                placeholder="Tell me about your idea, project, or role..."
-                rows={3}
-                value={form.message}
+          <div className="form-row">
+            <div className="input-group">
+              <User size={14} className="input-icon" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
                 onChange={handleChange}
                 required
               />
             </div>
-
-            <button
-              type="submit"
-              className={`form-submit-btn ${status}`}
-              disabled={status === 'sending'}
-            >
-              {status === 'sending' ? (
-                <>Sending...</>
-              ) : status === 'sent' ? (
-                <><CheckCircle2 size={15} /> Message Sent!</>
-              ) : (
-                <>Send Message <Send size={13} /></>
-              )}
-            </button>
-
-            <div className="form-footer-bar">
-              <div><MapPin size={11} /> India</div>
-              <div><Clock size={11} /> IST (UTC+5:30)</div>
+            <div className="input-group">
+              <Mail size={14} className="input-icon" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
             </div>
-          </form>
-        </div>
+          </div>
+
+          <div className="input-group text-group">
+            <textarea
+              name="message"
+              placeholder="Tell me about your idea, project, or role..."
+              rows={4}
+              value={form.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className={`form-submit-btn ${status}`}
+            disabled={status === 'sending'}
+          >
+            {status === 'sending' ? (
+              <>Sending...</>
+            ) : status === 'sent' ? (
+              <><CheckCircle2 size={16} /> Message Sent!</>
+            ) : (
+              <>Send Message <Send size={14} /></>
+            )}
+          </button>
+
+          <div className="form-footer-bar">
+            <div><MapPin size={12} /> India</div>
+            <div><Clock size={12} /> IST (UTC+5:30)</div>
+          </div>
+        </form>
       </div>
     </section>
   );
