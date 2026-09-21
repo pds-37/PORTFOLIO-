@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import SectionKicker from '../components/SectionKicker';
+import contactHeroBg from '../assets/contact-hero-bg.png';
 
 export default function Contact() {
   return (
@@ -31,7 +32,7 @@ export default function Contact() {
       </div>
 
       <div className="contact-art">
-        <img src="/assets/contact-hero-bg.png" alt="Workspace 3D Visual" />
+        <img src={contactHeroBg} alt="Workspace 3D Visual" />
       </div>
     </section>
   );

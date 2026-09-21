@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
 import { insights } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assets';
 
 export default function Insights() {
   return (
@@ -18,7 +19,7 @@ export default function Insights() {
       <div className="posts">
         {insights.map((post) => (
           <article key={post.id}>
-            <img src={"/assets/" + post.image} alt={post.title} />
+            <img src={getAssetUrl(post.image)} alt={post.title} />
             <div className="post-body">
               <small>{post.date} • {post.category}</small>
               <h3>{post.title}</h3>

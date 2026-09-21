@@ -2,11 +2,12 @@ import React from 'react';
 import { ArrowRight, Download, Mail } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import SectionKicker from '../components/SectionKicker';
+import heroBg from '../assets/hero-bg.png';
 
 export default function Hero({ go }) {
   return (
     <section id="home" className="hero section-dark">
-      <img className="hero-bg" src="/assets/hero-bg.png" alt="" />
+      <img className="hero-bg" src={heroBg} alt="Hero Background" />
       <div className="hero-vignette" />
       <div className="hero-copy">
         <SectionKicker num="00">ENGINEER · BUILDER · PROBLEM SOLVER</SectionKicker>

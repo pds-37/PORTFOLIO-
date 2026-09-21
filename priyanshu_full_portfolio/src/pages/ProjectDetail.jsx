@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, BrainCircuit, Search, Sparkles, Server } from 'l
 import { FaGithub as Github, FaLinkedin as Linkedin, FaTwitter as Twitter } from 'react-icons/fa';
 import SectionKicker from '../components/SectionKicker';
 import { projects } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assets';
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -50,7 +51,7 @@ export default function ProjectDetail() {
           <div className="pd-visual">
             <div className="pd-laptop">
               <div className="laptop-screen">
-                <img src={`/assets/${p.image}`} alt={p.title} />
+                <img src={getAssetUrl(p.image)} alt={p.title} />
               </div>
               <div className="laptop-bottom"></div>
             </div>

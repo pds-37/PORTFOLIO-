@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
 import { skills } from '../data/portfolioData';
+import skillsCube from '../assets/skills-cube.png';
 
 export default function Skills() {
   return (
@@ -16,7 +17,7 @@ export default function Skills() {
       </div>
 
       <div className="skills-visual">
-        <img src="/assets/skills-cube.png" alt="3D Glass Skills Cube" />
+        <img src={skillsCube} alt="3D Glass Skills Cube" />
       </div>
 
       <div className="skill-list">

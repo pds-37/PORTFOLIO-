@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
+import journeyVisual from '../assets/journey-visual.png';
 
 export default function Journey() {
   const milestones = [
@@ -11,7 +12,7 @@ export default function Journey() {
   ];
   return (
     <section id="journey" className="journey section-dark">
-      <img src="/assets/journey-visual.png" alt="" />
+      <img src={journeyVisual} alt="Journey background" />
       <div className="journey-overlay" />
       <div className="journey-copy">
         <SectionKicker num="05">JOURNEY</SectionKicker>

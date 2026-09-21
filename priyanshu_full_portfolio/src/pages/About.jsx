@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrainCircuit, Layers3, Code2, CheckCircle2, ArrowRight } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
+import aboutBg from '../assets/about-hero-bg.png';
 
 export default function About() {
   const features = [
@@ -11,7 +12,7 @@ export default function About() {
   ];
   return (
     <section id="about" className="about section-dark">
-      <img className="about-bg" src="/assets/about-hero-bg.png" alt="" />
+      <img className="about-bg" src={aboutBg} alt="About background" />
       <div className="about-overlay" />
       <div className="about-copy">
         <SectionKicker num="01">ABOUT</SectionKicker>

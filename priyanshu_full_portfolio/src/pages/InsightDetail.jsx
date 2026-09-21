@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen } from 'lucide-react';
 import { insights } from '../data/portfolioData';
 import SectionKicker from '../components/SectionKicker';
+import { getAssetUrl } from '../utils/assets';
 
 export default function InsightDetail() {
   const { id } = useParams();
@@ -32,7 +33,7 @@ export default function InsightDetail() {
           </div>
 
           <div className="id-hero">
-            <img src={`/assets/${post.image}`} alt={post.title} />
+            <img src={getAssetUrl(post.image)} alt={post.title} />
           </div>
 
           <div className="id-content">
