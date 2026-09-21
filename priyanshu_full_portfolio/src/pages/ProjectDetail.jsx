@@ -50,7 +50,7 @@ export default function ProjectDetail() {
           <div className="pd-visual">
             <div className="pd-laptop">
               <div className="laptop-screen">
-                <img src={`/src/assets/${p.image}`} alt={p.title} />
+                <img src={`/assets/${p.image}`} alt={p.title} />
               </div>
               <div className="laptop-bottom"></div>
             </div>

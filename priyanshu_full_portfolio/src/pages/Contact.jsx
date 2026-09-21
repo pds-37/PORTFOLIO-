@@ -12,7 +12,7 @@ export default function Contact() {
         <p>I'm always open to discussing new opportunities, interesting ideas, or potential collaborations.</p>
       </div>
       <div className="contact-art">
-        <img src="/src/assets/contact-hero-bg.png" alt="" />
+        <img src="/assets/contact-hero-bg.png" alt="" />
         <div className="contact-links-overlay">
           <a href="mailto:official.priyanshu.37@gmail.com"><Mail size={14} /><span>official.priyanshu.37@gmail.com</span> <ArrowRight size={14} /></a>
           <a href="https://www.linkedin.com/in/priyanshu-tiwari-pds37" target="_blank" rel="noreferrer"><Linkedin size={14} /><span>Connect on LinkedIn</span> <ArrowRight size={14} /></a>

@@ -13,7 +13,7 @@ export default function Skills() {
         <button className="btn dark">Explore My Skills <ArrowRight size={15} /></button>
       </div>
       <div className="skills-visual">
-        <img src="/src/assets/skills-hero-bg.png" alt="Skills visualization" />
+        <img src="/assets/skills-hero-bg.png" alt="Skills visualization" />
       </div>
       <div className="skill-list">
         {skills.map(([a, b]) => (

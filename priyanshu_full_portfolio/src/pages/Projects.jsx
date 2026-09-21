@@ -52,7 +52,7 @@ export default function Projects() {
             {/* Left Laptop */}
             <div className="laptop-card laptop-left" onClick={prev}>
               <div className="laptop-screen">
-                <img src={`/src/assets/${leftProject.image}`} alt={leftProject.title} />
+                <img src={`/assets/${leftProject.image}`} alt={leftProject.title} />
               </div>
               <div className="laptop-bottom"></div>
               <div className="laptop-details-mini">
@@ -68,7 +68,7 @@ export default function Projects() {
             {/* Right Laptop */}
             <div className="laptop-card laptop-right" onClick={next}>
               <div className="laptop-screen">
-                <img src={`/src/assets/${rightProject.image}`} alt={rightProject.title} />
+                <img src={`/assets/${rightProject.image}`} alt={rightProject.title} />
               </div>
               <div className="laptop-bottom"></div>
               <div className="laptop-details-mini">
@@ -85,7 +85,7 @@ export default function Projects() {
             <div className="laptop-card laptop-center">
               <div className="featured-pill-v2">Featured</div>
               <div className="laptop-screen">
-                <img src={`/src/assets/${centerProject.image}`} alt={centerProject.title} />
+                <img src={`/assets/${centerProject.image}`} alt={centerProject.title} />
               </div>
               <div className="laptop-bottom"></div>
               

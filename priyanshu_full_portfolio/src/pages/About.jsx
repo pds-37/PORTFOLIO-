@@ -11,7 +11,7 @@ export default function About() {
   ];
   return (
     <section id="about" className="about section-dark">
-      <img className="about-bg" src="/src/assets/about-hero-bg.png" alt="" />
+      <img className="about-bg" src="/assets/about-hero-bg.png" alt="" />
       <div className="about-overlay" />
       <div className="about-copy">
         <SectionKicker num="01">ABOUT</SectionKicker>

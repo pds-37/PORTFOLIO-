@@ -11,7 +11,7 @@ export default function Journey() {
   ];
   return (
     <section id="journey" className="journey section-dark">
-      <img src="/src/assets/journey-visual.png" alt="" />
+      <img src="/assets/journey-visual.png" alt="" />
       <div className="journey-overlay" />
       <div className="journey-copy">
         <SectionKicker num="05">JOURNEY</SectionKicker>

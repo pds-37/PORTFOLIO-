@@ -32,7 +32,7 @@ export default function InsightDetail() {
           </div>
 
           <div className="id-hero">
-            <img src={`/src/assets/${post.image}`} alt={post.title} />
+            <img src={`/assets/${post.image}`} alt={post.title} />
           </div>
 
           <div className="id-content">

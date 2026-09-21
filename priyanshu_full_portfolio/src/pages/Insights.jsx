@@ -18,7 +18,7 @@ export default function Insights() {
       <div className="posts">
         {insights.map((post) => (
           <article key={post.id}>
-            <img src={"/src/assets/" + post.image} alt={post.title} />
+            <img src={"/assets/" + post.image} alt={post.title} />
             <div className="post-body">
               <small>{post.date} • {post.category}</small>
               <h3>{post.title}</h3>
