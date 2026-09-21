@@ -5,7 +5,7 @@ export const projects = [
     eyebrow: "AI SECURITY · AGENT SUPERVISION",
     desc: "An open-source AI security firewall and agent supervisor designed to detect prompt injection, risky actions, data exfiltration and rogue agent behavior.",
     tags: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Neo4j"],
-    image: "/src/assets/guardianos.jpg",
+    image: "guardianos.jpg",
     accent: "gold"
   },
   {
