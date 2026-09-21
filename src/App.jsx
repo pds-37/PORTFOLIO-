@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Skills from "./pages/Skills";
+import Certificates from "./pages/Certificates";
 import Journey from "./pages/Journey";
 import Insights from "./pages/Insights";
 import InsightDetail from "./pages/InsightDetail";
@@ -27,7 +28,7 @@ function MainLayout() {
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const ids = ["home", "about", "projects", "skills", "journey", "insights", "contact"];
+    const ids = ["home", "about", "projects", "skills", "certificates", "journey", "insights", "contact"];
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -62,6 +63,7 @@ function MainLayout() {
             <About />
             <Projects />
             <Skills />
+            <Certificates />
             <Journey />
             <Insights />
             <Contact />

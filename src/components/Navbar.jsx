@@ -3,7 +3,7 @@ import { ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Navbar({ active, setActive }) {
   const [open, setOpen] = useState(false);
-  const links = ["Home", "About", "Projects", "Skills", "Journey", "Insights", "Contact"];
+  const links = ["Home", "About", "Projects", "Skills", "Certificates", "Journey", "Insights", "Contact"];
   const go = (id) => {
     setActive(id);
     setOpen(false);
