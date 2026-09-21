@@ -55,7 +55,7 @@ export const insights = [
     title: "What I Learned Building with LLMs",
     category: "AI / LLM Engineering",
     desc: "Key lessons from building real LLM applications.",
-    image: "insights-preview.png",
+    image: "earth-night.png",
     content: `
 ### Introduction
 Building with Large Language Models looks deceptively simple. You send a prompt, receive an answer, and suddenly you have an AI application. But once you move beyond a simple chatbot, the engineering becomes much more interesting: reliability, context, security, latency, cost, evaluation, and user experience all matter.
