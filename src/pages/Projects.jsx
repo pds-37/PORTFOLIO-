@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Box, ShieldCheck, Lightbulb, Users } from 'lucid
 import { Link } from 'react-router-dom';
 import SectionKicker from '../components/SectionKicker';
 import { projects } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assets';
 
 export default function Projects() {
   const [active, setActive] = useState(0);
