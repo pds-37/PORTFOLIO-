@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import SectionKicker from "../components/SectionKicker";
 import { certificates } from "../data/certificatesData";
-import { Award, ExternalLink, Download, Eye, X, ShieldCheck } from "lucide-react";
+import { ExternalLink, Download, Eye, X, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Certificates() {
   const [activeTab, setActiveTab] = useState("All");
   const [selectedCert, setSelectedCert] = useState(null);
+  const sliderRef = useRef(null);
 
   const categories = [
     "All",
@@ -20,14 +21,41 @@ export default function Certificates() {
     ? certificates 
     : certificates.filter(c => c.category === activeTab);
 
+  const handleScroll = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = direction === "left" ? -380 : 380;
+      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="certificates" className="section certificates-section">
-      <div className="section-head">
-        <SectionKicker label="CREDENTIALS & CERTIFICATIONS" />
-        <h2 className="title">Verified Skills & Recognized Accomplishments</h2>
-        <p className="subtitle">
-          Demonstrated expertise in Cybersecurity, AI/ML, Cloud Infrastructure, and Software Engineering verified by global platforms and institutions.
-        </p>
+      <div className="section-head cert-head-layout">
+        <div>
+          <SectionKicker label="HONORS & CREDENTIALS" />
+          <h2 className="title">Certifications & Industry Specializations</h2>
+          <p className="subtitle">
+            Validated expertise across offensive & defensive cybersecurity, artificial intelligence, cloud architecture, and competitive software engineering from leading global institutions.
+          </p>
+        </div>
+
+        {/* Scroll Control Arrows */}
+        <div className="cert-scroll-controls">
+          <button 
+            className="cert-scroll-btn" 
+            onClick={() => handleScroll("left")}
+            aria-label="Scroll Left"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button 
+            className="cert-scroll-btn" 
+            onClick={() => handleScroll("right")}
+            aria-label="Scroll Right"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Category Filter Tabs */}
@@ -37,7 +65,10 @@ export default function Certificates() {
             <button
               key={cat}
               className={`cert-tab ${activeTab === cat ? "active" : ""}`}
-              onClick={() => setActiveTab(cat)}
+              onClick={() => {
+                setActiveTab(cat);
+                if (sliderRef.current) sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
+              }}
             >
               {cat}
               {cat === "All" && <span className="cert-count">{certificates.length}</span>}
@@ -46,78 +77,80 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* Certificates Grid */}
-      <div className="cert-grid">
-        {filteredCertificates.map((cert) => (
-          <div key={cert.id} className="cert-card">
-            <div className="cert-img-wrapper" onClick={() => setSelectedCert(cert)}>
-              <img 
-                src={cert.preview} 
-                alt={cert.title} 
-                className="cert-img" 
-                loading="lazy" 
-              />
-              <div className="cert-overlay">
-                <span className="cert-view-btn">
-                  <Eye size={18} /> Quick Preview
-                </span>
-              </div>
-              {cert.badge && <span className="cert-badge">{cert.badge}</span>}
-            </div>
-
-            <div className="cert-content">
-              <div className="cert-meta">
-                <span className="cert-category">{cert.category}</span>
-                <span className="cert-date">{cert.date}</span>
-              </div>
-
-              <h3 className="cert-title" onClick={() => setSelectedCert(cert)}>
-                {cert.title}
-              </h3>
-
-              <p className="cert-issuer">
-                <ShieldCheck size={14} className="cert-shield" /> {cert.issuer}
-              </p>
-
-              {cert.credentialId && (
-                <div className="cert-id">
-                  <span>ID:</span> <code>{cert.credentialId}</code>
+      {/* Right Scrollable Horizontal Certificates Track */}
+      <div className="cert-track-wrapper">
+        <div className="cert-track" ref={sliderRef}>
+          {filteredCertificates.map((cert) => (
+            <div key={cert.id} className="cert-card horizontal-card">
+              <div className="cert-img-wrapper" onClick={() => setSelectedCert(cert)}>
+                <img 
+                  src={cert.preview} 
+                  alt={cert.title} 
+                  className="cert-img" 
+                  loading="lazy" 
+                />
+                <div className="cert-overlay">
+                  <span className="cert-view-btn">
+                    <Eye size={18} /> Quick Preview
+                  </span>
                 </div>
-              )}
+                {cert.badge && <span className="cert-badge">{cert.badge}</span>}
+              </div>
 
-              <div className="cert-actions">
-                <button 
-                  className="cert-action-btn primary"
-                  onClick={() => setSelectedCert(cert)}
-                  title="View Certificate Preview"
-                >
-                  <Eye size={14} /> Preview
-                </button>
+              <div className="cert-content">
+                <div className="cert-meta">
+                  <span className="cert-category">{cert.category}</span>
+                  <span className="cert-date">{cert.date}</span>
+                </div>
 
-                {cert.verifyUrl && (
-                  <a
-                    href={cert.verifyUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cert-action-btn secondary"
-                    title="Verify Credential Online"
-                  >
-                    <ExternalLink size={14} /> Verify
-                  </a>
+                <h3 className="cert-title" onClick={() => setSelectedCert(cert)}>
+                  {cert.title}
+                </h3>
+
+                <p className="cert-issuer">
+                  <ShieldCheck size={14} className="cert-shield" /> {cert.issuer}
+                </p>
+
+                {cert.credentialId && (
+                  <div className="cert-id">
+                    <span>ID:</span> <code>{cert.credentialId}</code>
+                  </div>
                 )}
 
-                <a
-                  href={cert.download}
-                  download
-                  className="cert-action-btn secondary icon-only"
-                  title="Download File"
-                >
-                  <Download size={14} />
-                </a>
+                <div className="cert-actions">
+                  <button 
+                    className="cert-action-btn primary"
+                    onClick={() => setSelectedCert(cert)}
+                    title="View Certificate Preview"
+                  >
+                    <Eye size={14} /> Preview
+                  </button>
+
+                  {cert.verifyUrl && (
+                    <a
+                      href={cert.verifyUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="cert-action-btn secondary"
+                      title="Verify Credential Online"
+                    >
+                      <ExternalLink size={14} /> Verify
+                    </a>
+                  )}
+
+                  <a
+                    href={cert.download}
+                    download
+                    className="cert-action-btn secondary icon-only"
+                    title="Download File"
+                  >
+                    <Download size={14} />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Lightbox / Modal Viewer */}
