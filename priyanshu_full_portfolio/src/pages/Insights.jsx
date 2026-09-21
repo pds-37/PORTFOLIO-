@@ -23,7 +23,7 @@ export default function Insights() {
               <small>{post.date} • {post.category}</small>
               <h3>{post.title}</h3>
               <p>{post.desc}</p>
-              <Link to={`/insight/${post.id}`} target="_blank">
+              <Link to={`/insight/${post.id}`}>
                 Read More <ArrowRight size={13} />
               </Link>
             </div>
