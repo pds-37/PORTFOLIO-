@@ -7,7 +7,7 @@ import { getAssetUrl } from '../utils/assets';
 
 export default function Insights() {
   return (
-    <section id="insights" className="insights section-light">
+    <section id="insights" className="insights section-dark">
       <div className="insights-head">
         <div>
           <SectionKicker num="06">THINKING / INSIGHTS</SectionKicker>

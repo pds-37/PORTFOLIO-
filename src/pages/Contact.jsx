@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact section-light">
+    <section id="contact" className="contact section-dark">
       <div className="contact-copy">
         <SectionKicker num="07">CONTACT</SectionKicker>
         <h2>Let's build<br /><em>something meaningful.</em></h2>

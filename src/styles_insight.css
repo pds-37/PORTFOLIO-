@@ -1,13 +1,12 @@
-
 /* =========================================================
-   INSIGHT DETAIL PAGE
+   INSIGHT DETAIL PAGE (DARK THEME)
 ========================================================= */
 .insight-detail-page {
   min-height: 100vh;
   padding-top: 120px;
   padding-bottom: 100px;
-  background: var(--light);
-  color: var(--ink);
+  background: var(--dark);
+  color: white;
 }
 
 .id-container {
@@ -20,12 +19,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #888;
+  color: #aaa;
   text-decoration: none;
   font-size: 13px;
   margin-bottom: 50px;
+  transition: color 0.2s ease;
 }
-.id-back:hover { color: var(--ink); }
+.id-back:hover { color: var(--gold); }
 
 .id-header {
   margin-bottom: 40px;
@@ -35,21 +35,23 @@
   letter-spacing: -2px;
   line-height: 1.1;
   margin: 15px 0;
+  color: #fff;
 }
 .id-meta {
-  color: #777;
+  color: #888;
   font-size: 14px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.id-meta .dot { color: #ccc; }
+.id-meta .dot { color: var(--gold); }
 
 .id-hero {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 50px;
-  background: #e6e0d4;
+  background: #101318;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   height: 400px;
 }
 .id-hero img {
@@ -61,13 +63,13 @@
 .id-content {
   font-size: 17px;
   line-height: 1.7;
-  color: #333;
+  color: #ccc;
 }
 .id-content h3 {
   font-size: 24px;
   letter-spacing: -0.5px;
   margin: 40px 0 15px;
-  color: var(--ink);
+  color: #fff;
 }
 .id-content p {
   margin-bottom: 20px;
@@ -76,16 +78,19 @@
   margin: 35px 0;
   padding: 25px 30px;
   border-left: 3px solid var(--gold);
-  background: white;
+  background: rgba(18, 22, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left-width: 3px;
+  border-left-color: var(--gold);
   border-radius: 0 12px 12px 0;
-  color: #555;
+  color: #ddd;
   font-size: 16px;
   line-height: 1.6;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .id-content blockquote strong {
   display: block;
-  color: var(--ink);
+  color: var(--gold);
   margin-bottom: 8px;
   font-size: 14px;
   text-transform: uppercase;

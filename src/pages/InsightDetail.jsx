@@ -14,7 +14,7 @@ export default function InsightDetail() {
   }, [id]);
 
   return (
-    <div className="insight-detail-page section-light">
+    <div className="insight-detail-page section-dark">
       <div className="id-container">
         
         <Link to="/#insights" className="id-back">
