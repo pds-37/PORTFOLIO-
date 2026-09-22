@@ -46,16 +46,20 @@ export default function Skills() {
   return (
     <section id="skills" className="skills section-dark">
       <div className="skills-copy">
-        <SectionKicker num="04" dark={true}>SKILLS & CAPABILITIES</SectionKicker>
-        <h2>A toolkit<br /><em>for what's next.</em></h2>
-        <p>Technologies I use to turn ideas into products. I'm always learning, experimenting, and sharpening the tools that matter.</p>
-        <a href="https://github.com/pds-37" target="_blank" rel="noreferrer" className="btn light">
-          Explore GitHub <ArrowRight size={15} />
-        </a>
+        <div className="reveal-item stagger-1">
+          <SectionKicker num="04" dark={true}>SKILLS & CAPABILITIES</SectionKicker>
+        </div>
+        <h2 className="reveal-item stagger-2">A toolkit<br /><em>for what's next.</em></h2>
+        <p className="reveal-item stagger-3">Technologies I use to turn ideas into products. I'm always learning, experimenting, and sharpening the tools that matter.</p>
+        <div className="reveal-item stagger-4">
+          <a href="https://github.com/pds-37" target="_blank" rel="noreferrer" className="btn light">
+            Explore GitHub <ArrowRight size={15} />
+          </a>
+        </div>
       </div>
 
       {/* Animated 3D Glass Tech Core */}
-      <div className="skills-core-visual">
+      <div className="skills-core-visual reveal-item stagger-2">
         <div className="core-orbit-ring ring-1" />
         <div className="core-orbit-ring ring-2" />
         <div className="core-glass-card">

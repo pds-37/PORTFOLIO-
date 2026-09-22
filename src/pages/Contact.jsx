@@ -31,11 +31,13 @@ export default function Contact() {
   return (
     <section id="contact" className="contact section-dark">
       <div className="contact-copy">
-        <SectionKicker num="07">CONTACT</SectionKicker>
-        <h2>Let's build<br /><em>something meaningful.</em></h2>
-        <p>I'm always open to discussing new opportunities, interesting ideas, or potential collaborations.</p>
+        <div className="reveal-item stagger-1">
+          <SectionKicker num="07">CONTACT</SectionKicker>
+        </div>
+        <h2 className="reveal-item stagger-2">Let's build<br /><em>something meaningful.</em></h2>
+        <p className="reveal-item stagger-3">I'm always open to discussing new opportunities, interesting ideas, or potential collaborations.</p>
 
-        <div className="contact-links">
+        <div className="contact-links reveal-item stagger-4">
           <a href="mailto:official.priyanshu.37@gmail.com">
             <Mail size={16} />
             <span>official.priyanshu.37@gmail.com</span>

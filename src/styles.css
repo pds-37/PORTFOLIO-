@@ -2028,3 +2028,99 @@ footer span:first-child{color:#fff;font-weight:700}
   transition: opacity 0.2s ease;
 }
 
+/* ==========================================================================
+   METALLIC GOLD SHIMMER & LUXURY LIGHT SWEEPS
+   ========================================================================== */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-shimmer,
+.hero h1 em,
+.about h2 em,
+.skills h2 em,
+.journey h2 em,
+.insights h2 em,
+.contact h2 em,
+.projects-v2-info h2 em {
+  background: linear-gradient(
+    115deg,
+    #c49a60 0%,
+    #f2dbb3 25%,
+    #ffffff 45%,
+    #f2dbb3 65%,
+    #c49a60 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL & STAGGER CASCADE
+   ========================================================================== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+
+/* Interactive Parallax Element Smoothness */
+.parallax-layer {
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Atmospheric Glow Pulse for Stat Numbers */
+.stat-counter-glow {
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+.stat-counter-glow:hover {
+  text-shadow: 0 0 16px rgba(214, 178, 127, 0.6);
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer,
+  .hero h1 em,
+  .about h2 em,
+  .skills h2 em,
+  .journey h2 em,
+  .insights h2 em,
+  .contact h2 em,
+  .projects-v2-info h2 em {
+    animation: none !important;
+    background: var(--gold) !important;
+    -webkit-text-fill-color: var(--gold) !important;
+  }
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .parallax-layer {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+

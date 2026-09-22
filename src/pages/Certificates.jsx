@@ -33,9 +33,11 @@ export default function Certificates() {
     <section id="certificates" className="section certificates-section">
       <div className="section-head cert-head-layout">
         <div>
-          <SectionKicker label="HONORS & CREDENTIALS" />
-          <h2 className="title">Certifications & Industry Specializations</h2>
-          <p className="subtitle">
+          <div className="reveal-item stagger-1">
+            <SectionKicker label="HONORS & CREDENTIALS" />
+          </div>
+          <h2 className="title reveal-item stagger-2">Certifications & Industry Specializations</h2>
+          <p className="subtitle reveal-item stagger-3">
             Validated expertise across offensive & defensive cybersecurity, artificial intelligence, cloud architecture, and competitive software engineering from leading global institutions.
           </p>
         </div>

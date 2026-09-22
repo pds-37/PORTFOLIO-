@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import GlowCursor from "./components/GlowCursor";
+import { useScrollReveal } from "./utils/useScrollReveal";
 import Hero from "./pages/Hero";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -17,6 +18,8 @@ import Contact from "./pages/Contact";
 function MainLayout() {
   const [active, setActive] = useState("Home");
   const { pathname } = useLocation();
+
+  useScrollReveal();
 
   const go = (name) => {
     setActive(name);

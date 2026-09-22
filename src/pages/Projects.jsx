@@ -23,19 +23,23 @@ export default function Projects() {
         
         {/* Left Side Info */}
         <div className="projects-v2-info">
-          <SectionKicker num="03">PROJECTS</SectionKicker>
-          <h2>Products<br/><em>I've built.</em></h2>
-          <p>A collection of projects that reflect my interests in AI, software development, and real-world problem solving.</p>
+          <div className="reveal-item stagger-1">
+            <SectionKicker num="03">PROJECTS</SectionKicker>
+          </div>
+          <h2 className="reveal-item stagger-2">Products<br/><em>I've built.</em></h2>
+          <p className="reveal-item stagger-3">A collection of projects that reflect my interests in AI, software development, and real-world problem solving.</p>
           
-          <a href="https://github.com/pds-37" target="_blank" rel="noopener noreferrer" className="btn outline view-all-btn" style={{display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none'}}>
-            View All Projects <ArrowRight size={15} />
-          </a>
+          <div className="reveal-item stagger-4">
+            <a href="https://github.com/pds-37" target="_blank" rel="noopener noreferrer" className="btn outline view-all-btn" style={{display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none'}}>
+              View All Projects <ArrowRight size={15} />
+            </a>
+          </div>
           
           <div className="scribble projects-scribble-left">
             From<br/>idea<br/>to impact. <span className="scribble-arrow">↗</span>
           </div>
           
-          <div className="projects-v2-nav">
+          <div className="projects-v2-nav reveal-item stagger-4">
             <button onClick={prev}><ArrowLeft size={16}/></button>
             <span>{String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span>
             <button onClick={next}><ArrowRight size={16}/></button>

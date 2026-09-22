@@ -15,11 +15,13 @@ export default function Journey() {
       <img src={journeyVisual} alt="Journey background" />
       <div className="journey-overlay" />
       <div className="journey-copy">
-        <SectionKicker num="05">JOURNEY</SectionKicker>
-        <h2>A path of<br /><em>continuous growth.</em></h2>
-        <p>A journey of curiosity, learning, building, challenging myself, and creating impact — and this is just the beginning.</p>
+        <div className="reveal-item stagger-1">
+          <SectionKicker num="05">JOURNEY</SectionKicker>
+        </div>
+        <h2 className="reveal-item stagger-2">A path of<br /><em>continuous growth.</em></h2>
+        <p className="reveal-item stagger-3">A journey of curiosity, learning, building, challenging myself, and creating impact — and this is just the beginning.</p>
       </div>
-      <div className="timeline">
+      <div className="timeline reveal-item stagger-4">
         {milestones.map(([year, title, desc]) => (
           <div className="milestone" key={year}>
             <span className="dot" />
@@ -31,7 +33,7 @@ export default function Journey() {
           </div>
         ))}
       </div>
-      <div className="journey-stats">
+      <div className="journey-stats reveal-item stagger-5">
         <div><b>3+</b><span>Years of Learning</span></div>
         <div><b>10+</b><span>Projects Built</span></div>
         <div><b>5+</b><span>Technologies</span></div>

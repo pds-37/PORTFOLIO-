@@ -11,11 +11,15 @@ export default function Insights() {
     <section id="insights" className="insights section-dark">
       <div className="insights-head">
         <div>
-          <SectionKicker num="06">THINKING / INSIGHTS</SectionKicker>
-          <h2>Notes from<br /><em>my journey.</em></h2>
-          <p>Thoughts, learnings, and ideas around AI, product development, and everything in between.</p>
+          <div className="reveal-item stagger-1">
+            <SectionKicker num="06">THINKING / INSIGHTS</SectionKicker>
+          </div>
+          <h2 className="reveal-item stagger-2">Notes from<br /><em>my journey.</em></h2>
+          <p className="reveal-item stagger-3">Thoughts, learnings, and ideas around AI, product development, and everything in between.</p>
         </div>
-        <button className="btn outline dark-outline">Read All Articles <ArrowRight size={15} /></button>
+        <div className="reveal-item stagger-4">
+          <button className="btn outline dark-outline">Read All Articles <ArrowRight size={15} /></button>
+        </div>
       </div>
       <div className="posts">
         {insights.map((post) => (
