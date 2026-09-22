@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import SectionKicker from "../components/SectionKicker";
 import { certificates } from "../data/certificatesData";
 import { ExternalLink, Download, Eye, X, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import TiltCard from "../utils/useTilt";
 
 export default function Certificates() {
   const [activeTab, setActiveTab] = useState("All");
@@ -81,7 +82,7 @@ export default function Certificates() {
       <div className="cert-track-wrapper">
         <div className="cert-track" ref={sliderRef}>
           {filteredCertificates.map((cert) => (
-            <div key={cert.id} className="cert-card horizontal-card">
+            <TiltCard key={cert.id} className="cert-card horizontal-card" max={7} scale={1.02}>
               <div className="cert-img-wrapper" onClick={() => setSelectedCert(cert)}>
                 <img 
                   src={cert.preview} 
@@ -148,7 +149,7 @@ export default function Certificates() {
                   </a>
                 </div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

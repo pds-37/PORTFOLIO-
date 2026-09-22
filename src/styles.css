@@ -1921,3 +1921,110 @@ footer span:first-child{color:#fff;font-weight:700}
   }
 }
 
+/* ==========================================================================
+   AMBIENT GLOW CURSOR FOLLOWER
+   ========================================================================== */
+.glow-cursor-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glow-cursor-container.is-active {
+  opacity: 1;
+}
+
+.cursor-ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 178, 127, 0.08) 0%, rgba(214, 178, 127, 0.02) 45%, transparent 70%);
+  pointer-events: none;
+  transform: translate3d(-1000px, -1000px, 0) translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(214, 178, 127, 0.5);
+  pointer-events: none;
+  transform: translate3d(-1000px, -1000px, 0) translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              height 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.25s ease, 
+              background-color 0.25s ease;
+  will-change: transform;
+  box-shadow: 0 0 10px rgba(214, 178, 127, 0.15);
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  pointer-events: none;
+  transform: translate3d(-1000px, -1000px, 0) translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(214, 178, 127, 0.8);
+  will-change: transform;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.glow-cursor-container.is-hovering .cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(214, 178, 127, 0.85);
+  background: rgba(214, 178, 127, 0.08);
+  box-shadow: 0 0 20px rgba(214, 178, 127, 0.35);
+}
+
+.glow-cursor-container.is-hovering .cursor-dot {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.glow-cursor-container.is-clicking .cursor-ring {
+  width: 24px;
+  height: 24px;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Auto-hide cursor follower on touch screens */
+@media (hover: none) or (pointer: coarse) {
+  .glow-cursor-container {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   3D TILT CARDS & DYNAMIC GLARE
+   ========================================================================== */
+.tilt-card-wrapper {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-glare-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: overlay;
+  transition: opacity 0.2s ease;
+}
+

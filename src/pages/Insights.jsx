@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
 import { insights } from '../data/portfolioData';
 import { getAssetUrl } from '../utils/assets';
+import TiltCard from '../utils/useTilt';
 
 export default function Insights() {
   return (
@@ -18,7 +19,7 @@ export default function Insights() {
       </div>
       <div className="posts">
         {insights.map((post) => (
-          <article key={post.id}>
+          <TiltCard key={post.id} as="article" max={8} scale={1.02}>
             <img src={getAssetUrl(post.image)} alt={post.title} />
             <div className="post-body">
               <small>{post.date} • {post.category}</small>
@@ -28,7 +29,7 @@ export default function Insights() {
                 Read More <ArrowRight size={13} />
               </Link>
             </div>
-          </article>
+          </TiltCard>
         ))}
       </div>
     </section>

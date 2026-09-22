@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Cpu, Code, Server, Database, Shield, Wrench, Sparkles } from 'lucide-react';
 import SectionKicker from '../components/SectionKicker';
+import TiltCard from '../utils/useTilt';
 
 export default function Skills() {
   const categories = [
@@ -73,17 +74,20 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* Skill Cards Grid */}
+      {/* Skill Cards Grid with 3D Tilt */}
       <div className="skills-matrix">
         {categories.map((cat) => {
           const Icon = cat.icon;
           return (
-            <div 
+            <TiltCard 
               key={cat.title} 
               className="skill-card"
+              max={12}
+              scale={1.03}
               style={{ 
                 '--cat-color': cat.color, 
-                '--cat-glow': `${cat.color}33` 
+                '--cat-glow': `${cat.color}33`,
+                '--tilt-glare': `${cat.color}25`
               }}
             >
               <div className="skill-card-header">
@@ -95,7 +99,7 @@ export default function Skills() {
                   <span key={item}>{item}</span>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           );
         })}
       </div>
