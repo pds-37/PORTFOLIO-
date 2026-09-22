@@ -551,133 +551,1020 @@ DATA → RETRIEVAL → RANKING → CONTEXT → GENERATION → EVALUATION → SEC
   },
   {
     id: "product-thinking",
-    date: "Jun 15, 2024",
+    date: "Sep 2026",
     title: "Product Thinking for Engineers",
-    category: "Engineering / Product",
-    desc: "Why product thinking matters even as a technical person.",
-    image: "skills-preview.png",
-    content: `
-### Code Isn't the Starting Point
-As developers, it is easy to jump directly into implementation. But before writing code, understand the problem, the user, and the desired experience.
+    category: "Product Development · Engineering · UX · Strategy",
+    desc: "From Writing Code to Building What Matters — Complete Engineering & Strategy Handbook.",
+    image: "product-thinking.jpg",
+    content: `### Overview
+**Product Thinking for Engineers — From Writing Code to Building What Matters**
+Product Development · Engineering · UX · Strategy · Metrics · Version 1.0 (September 2026)
 
-### 1. Who Is the User?
-Ask: Who uses this? Why do they need it? What problem are they experiencing? What do they currently use? What makes this solution better?
+A practical guide for engineers who want to think beyond implementation and build products that solve meaningful problems.
 
-### 2. Define the Problem
-Turn vague ideas into concrete user problems. A specific problem statement creates better constraints for design and engineering.
+### 01 — What Is Product Thinking?
+Product thinking is the habit of solving the right problem for the right people rather than simply building technically interesting features.
 
-### 3. Build the Smallest Useful Version
-Start with the core user journey, build a minimum useful product, collect feedback, and iterate. Avoid building dozens of features before validating the core idea.
+For engineers, it connects technical decisions to user needs, business constraints, measurable outcomes, and long-term product quality.
 
-### 4. Architecture Should Follow Requirements
-Choose technologies because they solve requirements, not simply because they are popular. For example, caching requirements may point toward Redis, semantic search toward a vector store, and relational transactions toward PostgreSQL.
+> **Core Goal:** The goal is not to build more software. The goal is to create more useful outcomes.
 
-### 5. Security Is a Product Feature
-Security includes authentication, authorization, validation, rate limiting, secrets management, logging, encryption, monitoring, and abuse handling. AI systems add concerns such as prompt injection, data leakage, malicious tool calls, and context poisoning.
+### 02 — Why Engineers Need It?
+Engineers shape APIs, workflows, performance, security, data models, error handling, and architecture. All of these affect the product experience.
 
-### 6. Build → Measure → Learn
-A useful development loop is Build → Test → Observe → Learn → Improve. The first architecture does not have to be the final architecture.
+> **Impact:** Build with clearer intent, ask better questions, reduce wasted effort, and make stronger technical trade-offs.
 
-### 7. Technical Debt Is a Trade-off
-A fast prototype can be appropriate when an idea is still being validated. Once the product is proven, architecture and operational quality can be strengthened deliberately.
+### 03 — Product vs Feature Thinking
+Feature thinking asks: "What should we build?" Product thinking asks first: "What problem are we solving, for whom, and how will we know it worked?"
 
-### 8. Think About Failure
-Ask what happens when the database is unavailable, an LLM fails, an external API times out, a user sends malicious input, or an agent requests an unsafe action. Designing failure paths leads to stronger systems.
+\`\`\`
+Feature: Idea → Feature → Code
+Product: Problem → User → Outcome → Solution → Measure
+\`\`\`
 
-### 9. A Product Is More Than Its Technology
-React, Node, Python, databases, LLMs, Docker, and cloud services are tools. A product emerges from the combination of a real problem, a user, engineering, design, security, and iteration.
+### 04 — Problem Before Solution
+A common trap is starting with an exciting implementation. Separate the problem from the proposed solution so the team can evaluate alternatives.
 
-### Final Thought
-The more projects I build, the more I realize that engineering is not simply about writing more code. It is about making better decisions: what to build, why to build it, how it should work, what can go wrong, and how to know whether it actually helped.
+\`\`\`
+Observed Problem → User Need → Constraints → Possible Solutions
+\`\`\`
+
+### 05 — Understanding Users
+Users have goals, habits, constraints, frustrations, and different technical abilities. Product decisions improve when those realities are understood.
+
+> **Focus Area:** Focus on goals, context, pain points, constraints, and success criteria.
+
+### 06 — User Personas
+A persona is a useful representation of a meaningful user group. Keep it grounded in product-relevant behavior rather than fictional biography.
+
+• **Goal & Primary Task**
+• **Pain Points & Frustrations**
+• **Constraints & Environment**
+• **Technical Familiarity**
+• **Success Criteria**
+
+### 07 — Jobs to Be Done
+Jobs to Be Done focuses on the progress a user is trying to make rather than only the feature they request.
+
+> **JTBD Template:** When **[situation]**, I want to **[motivation]**, so I can **[desired outcome]**.
+
+### 08 — Problem Discovery
+Use interviews, support tickets, analytics, observation, surveys, usability tests, and direct feedback. Look for recurring problems and their context.
+
+> **Discovery Rule:** Discovery should reduce uncertainty before expensive implementation.
+
+### 09 — Problem Statements
+A good problem statement is specific enough to guide decisions but open enough not to prescribe a solution.
+
+> **Format:** For **[user]**, **[problem]** makes it difficult to **[goal]**, especially when **[context]**.
+
+### 10 — Assumptions & Risks
+Write assumptions explicitly: do users have the problem, will behavior change, is the workflow technically feasible, can success be measured, and are there security or privacy constraints?
+
+> **Rule:** Visible assumptions can be tested; invisible assumptions become surprises.
+
+### 11 — Opportunity Mapping
+Connect user problems to possible outcomes and multiple solution areas instead of jumping directly from one request to one implementation.
+
+\`\`\`
+User Need → Opportunity → Multiple Solutions → Experiment
+\`\`\`
+
+### 12 — Defining Product Goals
+Product goals describe outcomes rather than shipping events.
+
+> **Example:** Weak: "Build notifications." Stronger: "Reduce missed critical updates for active users."
+
+### 13 — Product Vision
+A product vision describes the future state the product is trying to create and gives the team direction beyond the next sprint.
+
+> **Vision:** A roadmap says what may come next; a vision explains why the journey matters.
+
+### 14 — Product Strategy
+Strategy is a set of choices about where to focus, what not to pursue, who to serve, and how the product creates value.
+
+• **Target Users:** Who we are deliberately solving for
+• **Core Problem:** The primary pain point we address
+• **Differentiation:** Why our solution stands apart
+• **Constraints:** Resource, compliance, and architectural boundaries
+• **Capabilities:** What systems and team competencies we require
+• **Measures:** How we define strategic success
+
+### 15 — Prioritization
+Prioritization turns a large backlog into a deliberate sequence using value, confidence, cost, risk, and timing.
+
+> **Principle:** A priority is a decision under constraints, not proof that an idea is objectively more valuable.
+
+### 16 — RICE
+RICE uses Reach, Impact, Confidence, and Effort as a prioritization aid. It is a heuristic, not a mathematical truth.
+
+\`\`\`
+RICE = (Reach × Impact × Confidence) / Effort
+\`\`\`
+
+### 17 — Impact vs Effort
+A simple matrix helps identify low-effort/high-impact opportunities and expensive ideas that need stronger validation.
+
+> **Rule:** High impact + low effort → explore early; high impact + high effort → validate carefully.
+
+### 18 — MVP Thinking
+An MVP is the smallest credible product or experiment that can test an important assumption and create useful learning.
+
+> **Mindset:** Build the smallest thing that can produce meaningful evidence.
+
+### 19 — Prototypes
+Prototypes reduce the cost of learning. They can be sketches, wireframes, clickable mockups, technical spikes, or working slices.
+
+• **Low fidelity:** Concept learning and initial feedback
+• **Interactive mockup:** Workflow and interaction learning
+• **Technical spike:** Feasibility and architectural learning
+
+### 20 — User Flows
+Map the steps required to achieve a goal. Every extra state, dependency, permission boundary, and error path can affect completion.
+
+\`\`\`
+Entry → Action → Decision → System Response → Next Step → Outcome
+\`\`\`
+
+### 21 — UX for Engineers
+Engineers should understand loading, empty, success, error, permission, retry, and destructive-action states even when they are not designing the interface.
+
+> **Rule:** A polished happy path is not the whole user experience.
+
+### 22 — Technical Feasibility
+Bring architecture, dependencies, data availability, latency, security, scalability, and maintenance into product decisions early.
+
+> **Reality:** Product thinking includes engineering reality; it does not ignore it.
+
+### 23 — Architecture & Product Decisions
+Architecture is part of product quality. A prototype may optimize learning speed; production architecture may optimize reliability, security, and scale.
+
+> **Guideline:** Choose architecture for the current product need and known future constraints.
+
+### 24 — Build vs Buy
+Compare custom engineering with APIs, managed services, and open-source components using differentiation, total cost, security, customization, vendor risk, and operations.
+
+> **Rule:** Build where it differentiates; buy where it safely accelerates.
+
+### 25 — APIs & Integrations
+Integrations create dependencies. Evaluate rate limits, reliability, ownership, versioning, failure behavior, data movement, and lock-in.
+
+> **Principle:** Every dependency becomes part of the product's reliability surface.
+
+### 26 — Security by Design
+Security is product quality. Authentication, authorization, validation, secure defaults, secrets handling, logging, and abuse prevention belong in the design.
+
+> **Security Rule:** Security should shape the workflow, not merely audit it at the end.
+
+### 27 — Privacy & Trust
+Users need clarity about data collection, purpose, protection, retention, and controls. Engineering decisions determine much of that reality.
+
+> **Trust Principle:** Minimize unnecessary data and make access and retention deliberate.
+
+### 28 — Performance as Product
+Latency changes behavior. Performance targets should be tied to important user journeys rather than infrastructure numbers alone.
+
+> **Metric Rule:** Measure performance where users experience it.
+
+### 29 — Reliability as Product
+A feature that works only when everything is perfect is not a strong product experience.
+
+• **Graceful Failure:** Never crash unexpectedly; inform the user
+• **Retries & Idempotency:** Safely re-execute transient failures
+• **Monitoring & Observability:** Real-time visibility into health
+• **Incident Response:** Clear playbooks and mitigation paths
+• **Clear Error Messaging:** Actionable guidance instead of cryptic codes
+
+### 30 — Accessibility
+Engineers influence keyboard navigation, semantic structure, focus management, contrast, screen-reader support, and interaction states.
+
+> **Standard:** Accessibility is part of product reach and quality.
+
+### 31 — Design Systems
+Design systems create reusable UI and interaction patterns, reducing inconsistency and making product changes easier to scale.
+
+> **Benefit:** Reusable patterns reduce both design and engineering friction.
+
+### 32 — Agile & Iteration
+Agile is most useful as a learning loop, not simply a calendar of ceremonies.
+
+\`\`\`
+Plan → Build → Release → Observe → Learn → Adjust
+\`\`\`
+
+### 33 — Feedback Loops
+Connect feedback from users, analytics, support, sales, security, and engineering observations to explicit product decisions.
+
+> **Rule:** Feedback is valuable when it changes what the team does.
+
+### 34 — Product Metrics
+Metrics should answer a question. Track numbers because they inform a decision, not because they are easy to collect.
+
+• **Acquisition:** How users discover the product
+• **Activation:** Reaching first meaningful value
+• **Engagement:** Depth and frequency of usage
+• **Retention:** Users returning over time
+• **Conversion:** Moving to key lifecycle stages
+• **Reliability:** Uptime, error rate, and availability
+• **Quality:** User satisfaction and performance
+
+### 35 — North Star Metric
+A North Star Metric is intended to represent sustained customer value. It should be supported by diagnostic metrics.
+
+> **Warning:** One high-level measure cannot explain an entire product.
+
+### 36 — Funnels
+Funnels show where users progress or drop off through a sequence.
+
+\`\`\`
+Visit → Sign Up → Activate → Core Action → Return
+\`\`\`
+
+### 37 — Retention
+Retention asks whether users continue receiving enough value to return. Cohort analysis can reveal changes over time.
+
+> **Truth:** Retention is about repeated value, not merely repeated visits.
+
+### 38 — Activation
+Activation identifies the point where a new user experiences meaningful value. The event depends on the product.
+
+> **Goal:** Find the behavior that signals the user has reached first value.
+
+### 39 — Conversion
+Conversion measures movement between defined states, such as trial to paid or signup to first meaningful action.
+
+> **Requirement:** Define the starting state, destination state, window, and eligible population.
+
+### 40 — Qualitative vs Quantitative Data
+Quantitative data often tells you what happened; qualitative research can help explain why.
+
+\`\`\`
+Analytics → What? Interviews / Usability → Why? Combined → Better Decision
+\`\`\`
+
+### 41 — Experimentation
+Experiments should have a hypothesis, success measure, audience, duration or stopping rule, and decision criteria.
+
+\`\`\`
+Hypothesis → Experiment → Measure → Learn → Decision
+\`\`\`
+
+### 42 — A/B Testing
+A/B tests compare variants under defined conditions. They require appropriate measurement and careful interpretation.
+
+> **Principle:** Test a meaningful product decision, not random UI changes.
+
+### 43 — Failure Analysis
+A failed experiment can still be valuable if it produces reliable evidence about behavior or constraints.
+
+> **Mindset:** The goal is learning, not making every hypothesis look correct.
+
+### 44 — Product Analytics
+Instrumentation should map to user journeys with consistent event definitions, ownership, and documentation.
+
+> **Guideline:** Measure meaningful actions, not every click by default.
+
+### 45 — Launch Planning
+A launch includes readiness, support, documentation, monitoring, rollout, rollback, communication, and security.
+
+> **Formula:** Launch = shipping + operating + learning.
+
+### 46 — Documentation
+Capture goals, assumptions, workflows, constraints, architecture decisions, risks, and known limitations.
+
+> **Value:** Good documentation reduces ambiguity and preserves decision context.
+
+### 47 — Stakeholder Communication
+Translate technical work into outcomes, risks, options, and trade-offs when working with product, design, security, leadership, sales, or support.
+
+\`\`\`
+Context → Options → Trade-offs → Decision → Owner
+\`\`\`
+
+### 48 — Engineering Trade-offs
+Common dimensions include speed, quality, cost, flexibility, reliability, security, and maintainability.
+
+> **Law:** Every choice spends one resource to protect or improve another.
+
+### 49 — Technical Debt
+Some debt can be deliberate for learning; unmanaged debt becomes expensive when it slows product work or increases operational risk.
+
+> **Debt Rule:** Debt should have context, ownership, and a plan—not just a label.
+
+### 50 — Roadmaps
+A roadmap should communicate direction and outcomes rather than pretending future implementation details are certain.
+
+• **Outcome & Impact**
+• **Theme & Purpose**
+• **Horizon & Timeline**
+• **Confidence Level**
+• **System Dependencies**
+• **Explicit Exclusions**
+
+### 51 — Post-Launch
+Release is the beginning of measurement. Monitor adoption, errors, performance, support requests, security signals, and the original success metric.
+
+\`\`\`
+Launch → Observe → Diagnose → Improve → Measure again
+\`\`\`
+
+### 52 — Common Product Mistakes
+Building before understanding; feature overload; vanity metrics; ignoring edge cases; shipping without measurement; optimizing technical elegance without proving user value.
+
+> **Warning:** A technically excellent solution to the wrong problem is still the wrong product.
+
+### 53 — Practical Case Study
+Imagine a healthcare platform where users struggle to find the right service. Instead of adding more navigation, observe where they get stuck, identify the highest-friction step, and test a simpler flow.
+
+\`\`\`
+Observe → Friction → Outcome → Prototype → Test → Build → Measure
+\`\`\`
+
+### 54 — Product Thinking Workflow
+A repeatable workflow keeps product thinking practical and prevents teams from jumping directly into implementation.
+
+\`\`\`
+Understand → Define → Identify assumptions → Explore → Validate → Prioritize → Build → Release → Measure → Iterate
+\`\`\`
+
+### 55 — Engineer's Checklist
+Before building, ask: Can I explain the user problem? Who experiences it? What outcome should improve? What do we know versus assume? What alternatives exist? What are the technical and security trade-offs? How will success be measured?
+
+> **Checklist Rule:** If you cannot explain why the work matters, pause before writing the first line of code.
+
+### 56 — Career Application
+When describing projects, explain the problem, decision, implementation, trade-off, result, and learning—not only the technology stack.
+
+\`\`\`
+Problem → Decision → Implementation → Trade-off → Result → Learning
+\`\`\`
+
+### 57 — Final Principles
+Product thinking does not make engineers less technical. It makes technical skill more purposeful. Strong engineers can move between user problems, product outcomes, system constraints, and implementation details.
+
+> **Guiding Principle:** A great engineer asks not only "Can we build it?" but also "Should we build it, for whom, why, and how will we know it matters?"
+
+### Quick Reference — Product Thinking Loop
+| Stage | Core Question |
+| :--- | :--- |
+| **Understand** | Who is the user and what are they trying to accomplish? |
+| **Discover** | What problem actually exists? |
+| **Define** | What outcome should improve? |
+| **Explore** | What different solutions could address it? |
+| **Validate** | What is the riskiest assumption? |
+| **Prioritize** | Where should limited time and resources go? |
+| **Build** | What is the smallest useful slice? |
+| **Release** | How do we ship safely and observe behavior? |
+| **Measure** | Did the product create the intended outcome? |
+| **Learn** | What should change next? |
 `
   },
   {
     id: "defender-thinking",
-    date: "May 28, 2024",
+    date: "Sep 2026",
     title: "Thinking Like a Defender",
     category: "Cybersecurity / Blue Team",
-    desc: "Understanding what evidence means in cybersecurity.",
-    image: "projects-preview.png",
-    content: `
-### Introduction
-Cybersecurity initially looked like a collection of tools: Nmap, Wireshark, Burp Suite, SIEM, IDS, and endpoint utilities. Over time, the more important skill became understanding what the evidence means.
+    desc: "A Blue Team Handbook for Evidence-Driven Security Operations.",
+    image: "defender-thinking.jpg",
+    content: `### Overview
+**Thinking Like a Defender — Blue Team Handbook**
+SOC · Threat Detection · Incident Response · Threat Hunting · DFIR · Version 1.0 (September 2026)
 
-> **Key idea:** Instead of asking only "Which tool should I run?", a defender asks: what happened, why did it happen, what evidence supports that conclusion, what systems are affected, and what should happen next?
+A practical guide to evidence-driven cybersecurity, SOC operations, threat detection, incident response, threat hunting, and defensive engineering.
 
-### 1. Establish Normal
-Detection becomes easier when there is some understanding of expected authentication, network traffic, process activity, and resource usage. Baselines are imperfect, but they provide useful context for anomalies.
+### 01 — The Defender Mindset
+Defensive security starts with evidence, context, and disciplined reasoning. A defender should avoid jumping from an alert directly to a conclusion.
 
-### 2. Alerts Are Not Incidents
-A SIEM or IDS alert is a signal for investigation. A useful workflow is alert → triage → evidence collection → correlation → scope determination → investigation → response → documentation.
+The key question is not simply "What happened?" but "What evidence supports that explanation, what else could explain it, and what should we do next?"
 
-### 3. Follow the Evidence
-Investigations benefit from timelines. Questions include which account was involved, which host was affected, what happened first, which process executed, which network connections occurred, and whether the activity spread.
+\`\`\`
+Observe → Validate → Investigate → Contain → Recover → Learn
+\`\`\`
 
-### 4. Network Visibility
-Packet and flow analysis can reveal communication relationships, protocols, ports, destinations, frequency, and unusual patterns. The goal is not memorizing packet fields; it is understanding behavior.
+### 02 — What Blue Teams Actually Do
+Blue teams monitor environments, investigate suspicious activity, engineer detections, respond to incidents, hunt for threats, improve controls, and learn from failures.
 
-### 5. Detection Engineering
-Good detections begin with behaviors. Define the behavior you want to identify, determine what telemetry captures it, and then create a rule or analytic around that evidence.
+• **SOC Monitoring:** Continuous visibility and alert triage
+• **Detection Engineering:** Converting threat behavior into durable logic
+• **Incident Response:** Coordinated mitigation, containment, and recovery
+• **Threat Hunting:** Proactive hypothesis-driven searches across telemetry
+• **DFIR:** Deep digital forensics, memory analysis, and root-cause reconstruction
+• **Security Improvement:** Hardening architecture and closing defensive gaps
 
-### 6. False Positives
-A detection that fires constantly can create investigation fatigue. Detection quality is a balance between coverage, signal quality, and investigation cost.
+### 03 — Evidence Before Assumptions
+A hostname, IP, process name, alert, or suspicious login is a clue—not automatically proof of compromise. Build conclusions from multiple independent signals.
 
-### 7. Threat Hunting
-Threat hunting starts with a hypothesis and searches available telemetry for evidence that supports or contradicts it. Hunting can uncover activity that does not match an existing alert.
+> **Defensible Rule:** Signal ≠ conclusion. Evidence + context + correlation → defensible conclusion.
 
-### 8. Documentation
-A useful investigation record should explain what was observed, what evidence supports it, what actions were taken, and what remains uncertain. Good documentation makes future review easier.
+### 04 — The Security Operations Lifecycle
+A practical lifecycle connects prevention, monitoring, detection, investigation, response, recovery, and improvement.
 
-### Final Thought
-Cybersecurity is not only about finding malicious activity. It is about creating enough visibility and evidence to understand what happened and respond responsibly: visibility → detection → investigation → response → learning.
+\`\`\`
+Prepare → Monitor → Detect → Triage → Investigate → Contain → Eradicate → Recover → Improve
+\`\`\`
+
+### 05 — Assets & Attack Surface
+You cannot defend what you cannot identify. Build an inventory of endpoints, servers, identities, cloud resources, applications, network paths, and sensitive data.
+
+\`\`\`
+Asset → Owner → Exposure → Criticality → Telemetry → Control
+\`\`\`
+
+### 06 — Telemetry
+Telemetry is the raw material of detection and investigation. Useful sources include endpoint events, authentication logs, DNS, proxy logs, firewall data, cloud audit logs, application logs, and network flows.
+
+> **Standard:** Good telemetry should be useful, trustworthy, time-synchronized, searchable, and retained long enough for investigations.
+
+### 07 — Logs & Events
+A log is useful when it provides enough context to reconstruct activity: timestamp, actor, source, destination, action, result, process, host, and relevant identifiers.
+
+> **Rule:** Normalize fields and timestamps so events from different systems can be correlated.
+
+### 08 — Indicators of Compromise
+IOCs are observable artifacts associated with malicious activity, such as hashes, domains, IPs, filenames, registry keys, or unusual persistence artifacts.
+
+> **Principle:** An IOC is evidence to investigate—not automatically proof that a host is compromised.
+
+### 09 — Indicators of Attack
+IOAs describe suspicious behaviors or sequences, such as credential dumping behavior, unusual process trees, lateral movement patterns, or persistence activity.
+
+> **Insight:** Behavior often survives changes to filenames, hashes, and infrastructure.
+
+### 10 — Alerts vs Incidents
+An alert is a signal generated by a detection. An incident is a security event requiring investigation or response under the organization's criteria.
+
+\`\`\`
+Alert → Triage → Evidence → Classification → Incident Decision
+\`\`\`
+
+### 11 — Alert Triage
+Triage determines whether an alert is benign, suspicious, or likely malicious and decides what happens next.
+
+• **Validate Asset:** Verify asset identity, hostname, and criticality
+• **Validate User:** Check user role, privileges, and baseline behavior
+• **Inspect Timeline:** Trace events immediately before and after the alert
+• **Correlate Telemetry:** Cross-reference endpoint, network, and auth data
+• **Assess Impact:** Evaluate potential exposure, data loss, and blast radius
+• **Document Reasoning:** Record defensible evidence for the triage verdict
+
+### 12 — Severity & Prioritization
+Severity should consider confidence, asset criticality, scope, attacker capability, business impact, and urgency rather than relying only on a single alert score.
+
+> **Rule:** High severity should mean high consequence or urgency—not simply a scary alert name.
+
+### 13 — Incident Response
+Incident response is a coordinated process for analyzing and managing security incidents while preserving evidence and reducing impact.
+
+\`\`\`
+Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned
+\`\`\`
+
+### 14 — Incident Timeline
+A timeline transforms disconnected events into a sequence. Normalize timestamps and correlate process, authentication, network, file, and application activity.
+
+\`\`\`
+Before → Initial Access → Execution → Persistence → Discovery → Lateral Movement → Impact
+\`\`\`
+
+### 15 — Evidence Collection
+Collect evidence systematically and preserve context. Capture volatile information when appropriate, relevant logs, disk artifacts, memory, network data, and metadata.
+
+> **Preservation Rule:** Collect what answers the investigation question; avoid unnecessary collection that increases noise and handling risk.
+
+### 16 — Chain of Custody
+Forensic evidence should have traceable handling: what was collected, by whom, when, how it was stored, and what transformations occurred.
+
+\`\`\`
+Evidence → Hash → Record → Secure Storage → Verification
+\`\`\`
+
+### 17 — Host-Based Investigation
+Host investigations examine processes, files, persistence, users, services, scheduled tasks, network connections, event logs, and system changes.
+
+> **Strategy:** Start from the alert, then expand outward through process ancestry, user context, files, network activity, and persistence.
+
+### 18 — Windows Investigation
+Useful Windows evidence includes Event Logs, Sysmon, PowerShell activity, process creation, services, scheduled tasks, registry persistence, authentication events, and network connections.
+
+> **Investigation Focus:** Correlate process creation with user identity, parent process, command line, network activity, and persistence.
+
+### 19 — Linux Investigation
+Useful Linux evidence includes auth logs, systemd journals, process lists, shell history where appropriate, cron, SSH activity, file metadata, network sockets, and system configuration.
+
+> **Guideline:** Understand normal administrative activity before labeling unusual commands as malicious.
+
+### 20 — Network Investigation
+Network investigation looks at who communicated with whom, when, over which protocol, using what volume, and whether the pattern fits expected behavior.
+
+\`\`\`
+Source → Destination → Port → Protocol → Timing → Volume → Context
+\`\`\`
+
+### 21 — Packet Analysis
+Packet analysis can reveal protocol behavior, suspicious sessions, unusual payloads, DNS activity, TLS metadata, and communication patterns that higher-level logs may hide.
+
+> **Technique:** Wireshark and tcpdump are most useful when guided by a concrete investigative question.
+
+### 22 — DNS Analysis
+DNS can reveal command-and-control infrastructure, suspicious domains, unusual query volume, newly observed domains, and domain generation behavior.
+
+> **Checklist:** Investigate domain age/reputation where available, query frequency, clients, response patterns, and surrounding endpoint activity.
+
+### 23 — HTTP Analysis
+HTTP analysis examines requests, methods, hosts, paths, user agents, status codes, headers, response sizes, and timing.
+
+> **Analysis Rule:** Unexpected endpoints, unusual user agents, encoded data, and suspicious request patterns deserve context-driven investigation.
+
+### 24 — Authentication & Identity Logs
+Identity telemetry is essential for detecting credential abuse, unusual login locations, privilege escalation, password spraying, and lateral movement.
+
+\`\`\`
+User + Source + Time + Authentication Method + Result + Privilege Change
+\`\`\`
+
+### 25 — Endpoint Telemetry
+Endpoint telemetry provides visibility into process execution, file changes, network connections, registry activity, scripts, and user actions.
+
+> **Visibility Value:** Good endpoint visibility makes behavioral detection and investigation far more precise.
+
+### 26 — Process & Command-Line Analysis
+Process trees show how activity originated. Command lines can expose scripts, encoded commands, suspicious parameters, download behavior, or living-off-the-land techniques.
+
+\`\`\`
+Parent Process → Child Process → Command Line → User → Network → File Activity
+\`\`\`
+
+### 27 — Persistence
+Persistence allows an attacker to survive reboot or regain access. Investigate scheduled tasks, services, startup locations, registry mechanisms, cron, SSH keys, and application-specific persistence.
+
+> **Correlation Rule:** Persistence findings should be correlated with first-seen timestamps and execution evidence.
+
+### 28 — Malware Analysis Mindset
+Malware analysis should answer practical questions: what does the sample do, how does it execute, what does it communicate with, what artifacts does it leave, and how can defenders detect it?
+
+> **Mindset:** Behavior and artifacts matter more than simply assigning a malware name.
+
+### 29 — Static Analysis
+Static analysis examines a sample without executing it. Useful artifacts include hashes, strings, metadata, imports, embedded URLs, certificates, sections, and suspicious capabilities.
+
+> **Value:** Static analysis can generate hypotheses and IOCs for deeper investigation.
+
+### 30 — Dynamic Analysis
+Dynamic analysis observes behavior in a controlled environment. Monitor processes, files, registry changes, network traffic, mutexes, persistence, and spawned commands.
+
+> **Requirement:** Use isolated environments and collect evidence before, during, and after execution.
+
+### 31 — IOC Extraction
+Extract actionable indicators from investigations: hashes, domains, IPs, URLs, paths, mutexes, registry keys, certificates, filenames, and behavioral patterns.
+
+> **Rule:** Every IOC should have provenance and context so defenders understand why it matters.
+
+### 32 — YARA
+YARA rules identify patterns in files or memory. Good rules balance specificity with resilience against minor changes.
+
+> **Best Practice:** Prefer meaningful combinations of strings and structural conditions over brittle single strings.
+
+### 33 — Threat Intelligence
+Threat intelligence adds context about adversaries, infrastructure, campaigns, malware families, tactics, and observed indicators.
+
+> **Principle:** Use intelligence to enrich evidence, not to replace local investigation.
+
+### 34 — MITRE ATT&CK
+MITRE ATT&CK provides a common language for adversary tactics and techniques. It can organize detections, investigations, threat hunts, and coverage gaps.
+
+> **Rule:** Map observed behavior to techniques only when the evidence supports the mapping.
+
+### 35 — Threat Hunting
+Threat hunting is a hypothesis-driven search for suspicious activity that may not have triggered an existing alert.
+
+\`\`\`
+Hypothesis → Data Sources → Query → Investigate Anomalies → Validate → Detect
+\`\`\`
+
+### 36 — Detection Engineering
+Detection engineering converts threat knowledge and observed behavior into reliable, maintainable detections.
+
+\`\`\`
+Threat Behavior → Observable Signal → Logic → Test → Tune → Deploy → Monitor
+\`\`\`
+
+### 37 — Sigma & Detection Logic
+Sigma provides a portable way to describe log-based detection logic. Good detections define the relevant fields, behavior, exclusions, and expected data source.
+
+> **Standard:** A detection should explain what it detects, why it matters, and what evidence analysts should inspect next.
+
+### 38 — SIEM Engineering
+A SIEM becomes useful when data is normalized, searchable, correlated, retained appropriately, and connected to actionable detections.
+
+\`\`\`
+Ingest → Normalize → Enrich → Correlate → Detect → Investigate → Report
+\`\`\`
+
+### 39 — IDS / Network Detection
+Network detection systems can identify suspicious signatures and behaviors. Their output must be combined with endpoint and identity context.
+
+> **Formula:** Network signal + endpoint context + identity context → stronger investigation
+
+### 40 — False Positives
+False positives consume analyst attention and can hide important alerts. Measure recurring benign patterns and determine whether they should be excluded, enriched, or redesigned.
+
+> **Goal:** Reduce noise without creating blind spots.
+
+### 41 — Detection Tuning
+Tune thresholds, allowlists, exclusions, enrichment, and correlation rules based on observed data. Document why a tuning change was made.
+
+> **Rule:** Every tuning change should preserve the security objective of the detection.
+
+### 42 — Correlation
+Correlation connects events across time and systems. A suspicious PowerShell process becomes more meaningful when linked to a new login, downloaded file, DNS request, and outbound connection.
+
+> **Insight:** One event can be ambiguous; a coherent sequence can be highly informative.
+
+### 43 — Risk Scoring
+Risk scores can combine confidence, asset criticality, behavior severity, and scope. Use scores to prioritize analyst attention, not to replace judgment.
+
+> **Principle:** Score should support triage; evidence should support conclusions.
+
+### 44 — Containment
+Containment limits damage while preserving the ability to investigate. Options can include endpoint isolation, account disablement, token revocation, network blocking, or segmentation depending on the incident.
+
+> **Guideline:** Choose containment actions based on impact, confidence, business criticality, and evidence preservation.
+
+### 45 — Eradication & Recovery
+Eradication removes attacker access and persistence. Recovery restores trusted operation while monitoring for recurrence.
+
+\`\`\`
+Remove Root Cause → Restore Safely → Validate Controls → Monitor Closely
+\`\`\`
+
+### 46 — Post-Incident Review
+After an incident, identify what happened, why controls did or did not work, what evidence was missing, and which changes should be prioritized.
+
+> **Objective:** The objective is measurable improvement, not blame.
+
+### 47 — Reporting
+A useful security report separates facts, evidence, analysis, uncertainty, impact, actions taken, and recommended follow-up.
+
+\`\`\`
+Timeline + Evidence + Assessment + Impact + Actions + Gaps + Next Steps
+\`\`\`
+
+### 48 — Common Defender Mistakes
+Treating one alert as proof; ignoring asset context; failing to build a timeline; over-trusting threat intelligence; collecting evidence without provenance; tuning detections without measuring blind spots; and documenting conclusions without supporting evidence.
+
+> **Warning:** Good defense is disciplined reasoning under uncertainty.
+
+### 49 — Practical SOC Case Study
+Imagine a high-risk alert for suspicious PowerShell activity. Start with the host and user, inspect the parent-child process tree, retrieve command-line details, correlate authentication, DNS, network connections, file writes, and persistence, then determine whether the behavior is expected or malicious.
+
+\`\`\`
+Alert → Process Tree → User Context → Network/DNS → Files → Persistence → Scope → Response
+\`\`\`
+
+### 50 — R&D / Experiment Framework
+Treat detection work as an engineering experiment. Compare baseline and improved logic using a fixed dataset or replayable telemetry.
+
+\`\`\`
+Baseline → Change One Variable → Measure Detection Rate, False Positives, Latency, Coverage → Review → Deploy
+\`\`\`
+
+### 51 — Defender Checklist
+Know the asset; identify the user; establish a timeline; preserve relevant evidence; correlate multiple telemetry sources; determine scope; document uncertainty; contain safely; verify eradication; and record lessons learned.
+
+> **Rule:** If you cannot explain the evidence chain, the investigation is not finished.
+
+### 52 — Career Application
+For SOC, detection, incident response, and blue-team interviews, explain investigations as evidence-driven stories. Show what signal you started with, what data you queried, what hypothesis you tested, what you found, and what action followed.
+
+\`\`\`
+Signal → Hypothesis → Investigation → Evidence → Decision → Outcome → Learning
+\`\`\`
+
+### 53 — Final Principles
+A defender is not simply someone who watches dashboards. Defensive security is the discipline of turning noisy telemetry into defensible conclusions and controlled actions.
+
+The strongest defenders remain curious, skeptical, evidence-driven, and willing to say when the available data is insufficient.
+
+> **Motto:** Think in timelines. Correlate evidence. Question assumptions. Preserve context. Improve the system after every incident.
+
+### Quick Reference — Defender Investigation Loop
+| Stage | Core Question |
+| :--- | :--- |
+| **Alert** | What signal was generated? |
+| **Validate** | Is the activity real and in context? |
+| **Scope** | Which users, hosts, accounts, and systems are involved? |
+| **Timeline** | What happened before, during, and after the signal? |
+| **Correlate** | What other telemetry supports or contradicts the hypothesis? |
+| **Evidence** | What artifacts can prove or disprove the theory? |
+| **Contain** | What action reduces risk without unnecessarily destroying evidence? |
+| **Eradicate** | What access, persistence, or malicious artifacts must be removed? |
+| **Recover** | Can the environment return to trusted operation? |
+| **Learn** | What detection, control, or process should improve? |
 `
   },
   {
     id: "incident-response",
-    date: "May 10, 2024",
+    date: "Sep 2026",
     title: "Incident Response: From Alert to Evidence",
-    category: "Incident Response / SOC",
-    desc: "A structured approach to handling security incidents.",
-    image: "contact-preview.png",
-    content: `
-### What Is Incident Response?
-Incident response is the structured handling of security incidents. A simplified lifecycle is preparation → detection → analysis → containment → eradication → recovery → lessons learned. Organizations may use different terminology, but the objective is to manage the incident systematically.
+    category: "Detection · Triage · Investigation · DFIR",
+    desc: "A Practical Handbook for SOC Analysts & Incident Responders.",
+    image: "incident-response.jpg",
+    content: `### Overview
+**Incident Response — From Alert to Evidence**
+Detection · Triage · Investigation · Evidence · Containment · Recovery · Version 1.0 (September 2026)
 
-### 1. Preparation
-Preparation includes logging, monitoring, endpoint and network visibility, access controls, backups, response procedures, communication channels, and clearly defined responsibilities.
+A practical handbook for SOC analysts and incident responders moving systematically from a security alert to evidence, scope, response, recovery, and measurable improvement.
 
-### 2. Detection
-Incidents may be discovered through SIEM alerts, IDS/IPS, endpoint telemetry, authentication anomalies, application monitoring, threat intelligence, or user reports. The initial alert is usually the beginning of the investigation.
+### 01 — What Is Incident Response?
+Incident response is the structured process of detecting, investigating, containing, eradicating, and recovering from security incidents. The objective is to reduce harm while establishing a defensible understanding of what happened.
 
-### 3. Analysis
-Investigators determine what happened, when it started, which assets and accounts are affected, how the activity began, whether lateral movement occurred, and whether data was accessed or transferred.
+\`\`\`
+Alert → Evidence → Assessment → Action → Recovery → Learning
+\`\`\`
 
-### 4. Build a Timeline
-A timeline connects individual observations into a sequence. Authentication, process creation, network connections, privilege changes, file access, and other events can be ordered to reconstruct activity.
+### 02 — The Incident Response Mindset
+A good responder treats an alert as a starting point, not a conclusion. Separate facts, observations, hypotheses, assumptions, and confirmed findings.
 
-### 5. Containment
-Containment aims to limit further impact. Depending on the incident, this can involve isolating a host, disabling compromised credentials, blocking malicious communication, or applying temporary access controls.
+> **Mindset:** Evidence + context + confidence should drive decisions.
 
-### 6. Evidence Preservation
-Evidence can include authentication logs, process records, network captures, endpoint telemetry, file metadata, memory captures, application logs, and cloud audit logs. Preservation should maintain traceability and integrity.
+### 03 — Alert vs Incident
+An alert is a detection signal. An incident is an event that meets the organization's criteria for security response.
 
-### 7. Eradication
-Eradication addresses the underlying malicious presence or mechanism. Examples can include removing persistence, resetting affected credentials, patching exploited weaknesses, or rebuilding compromised systems where appropriate.
+\`\`\`
+Alert → Triage → Validate → Classify → Incident Decision
+\`\`\`
 
-### 8. Recovery
-Recovery restores services and returns systems to a monitored operating state. Recovery should include verification that the relevant security controls are working again.
+### 04 — Incident Response Lifecycle
+A practical lifecycle connects preparation, detection, analysis, containment, eradication, recovery, and lessons learned.
 
-### 9. Lessons Learned
-Post-incident review asks what happened, why it happened, which controls failed or were missing, what telemetry was unavailable, and what changes should be made.
+\`\`\`
+Prepare → Detect → Analyze → Contain → Eradicate → Recover → Improve
+\`\`\`
 
-### 10. From Incident to Detection Improvement
-An incident can produce new detections, improved logging, better access controls, updated playbooks, and stronger response procedures. This turns an event into a source of security improvement.
+### 05 — Preparation
+Prepare asset inventories, logging, endpoint visibility, playbooks, investigation access, communication plans, backups, and trained responders.
 
-### Connection to HashGuard
-This lifecycle connects directly to digital evidence integrity. If investigators depend on files, logs, captures, or forensic artifacts, they need confidence that the material being analyzed is the material that was collected.
+> **Rule:** Reliable response starts before the incident.
 
-### Final Thought
-Incident response is not simply an emergency checklist. It is an evidence-driven engineering process: detect, understand, contain, recover, document, and improve.
+### 06 — Detection & Identification
+Record the original alert source, time, affected asset, user, detection logic, and available context before investigation changes the environment.
+
+> **Preservation:** Preserve the initial state.
+
+### 07 — Initial Triage
+Determine whether activity is expected, suspicious, or likely malicious. Confirm the affected asset and user, inspect nearby events, and estimate potential impact.
+
+> **Core Questions:** Who? What? When? Where? Why suspicious? What supports it?
+
+### 08 — Incident Classification
+Classify events consistently: malware, credential compromise, unauthorized access, phishing, data exposure, policy violation, and other defined categories.
+
+> **Purpose:** Classification supports routing and reporting.
+
+### 09 — Severity & Priority
+Consider confidence, asset criticality, scope, business impact, attacker access, data sensitivity, and urgency.
+
+> **Principle:** Priority should reflect consequence and urgency, not only alert scores.
+
+### 10 — Establishing Scope
+Determine which accounts, endpoints, applications, network segments, cloud resources, and data may be involved.
+
+> **Scope Rule:** Start narrow, then expand using evidence.
+
+### 11 — Building the Timeline
+Normalize timestamps and combine process, authentication, network, file, and application events into a coherent sequence.
+
+\`\`\`
+Initial Access → Execution → Persistence → Discovery → Lateral Movement → Impact
+\`\`\`
+
+### 12 — Evidence-First Investigation
+For each hypothesis, identify evidence that could confirm or reject it. Avoid unnecessary system changes before relevant volatile evidence is collected.
+
+\`\`\`
+Hypothesis → Evidence → Collection → Correlation → Conclusion
+\`\`\`
+
+### 13 — Evidence Types
+Common evidence includes logs, process trees, command lines, files, hashes, memory, network captures, DNS, authentication events, cloud audit trails, and application telemetry.
+
+> **Methodology:** Use multiple independent evidence sources where possible.
+
+### 14 — Volatile Evidence
+Memory, active connections, running processes, logged-in sessions, and temporary state can disappear or change quickly.
+
+> **Standard:** Collect volatile evidence when relevant, safe, and authorized.
+
+### 15 — Disk & File Evidence
+File metadata, timestamps, hashes, paths, permissions, downloads, scripts, archives, and suspicious binaries can reconstruct activity.
+
+> **Integrity:** Preserve original artifacts and record acquisition details.
+
+### 16 — Memory Evidence
+Memory can reveal runtime processes, connections, injected code, and other transient artifacts.
+
+> **Protocol:** Follow approved forensic acquisition procedures.
+
+### 17 — Network Evidence
+Network telemetry shows communications, destinations, ports, protocols, timing, volume, and possible command-and-control behavior.
+
+\`\`\`
+Source → Destination → Port → Protocol → Time → Context
+\`\`\`
+
+### 18 — Identity Evidence
+Authentication telemetry helps identify credential abuse, unusual login patterns, privilege escalation, token use, and lateral movement.
+
+\`\`\`
+User + Source + Time + Method + Result + Privilege
+\`\`\`
+
+### 19 — Cloud Evidence
+Cloud investigations may use audit logs, identity events, API calls, object access, security findings, flow data, and configuration history.
+
+> **Context:** Interpret cloud activity with identity and resource context.
+
+### 20 — Application Evidence
+Application logs can reveal authentication, requests, administrative actions, data access, API usage, and abnormal workflows.
+
+> **Value:** Application evidence often explains business impact.
+
+### 21 — Evidence Integrity
+Record acquisition details, timestamps, hashes where appropriate, storage location, and transformations so evidence remains trustworthy.
+
+> **Standard:** Evidence should be verifiable from collection through analysis.
+
+### 22 — Chain of Custody
+Track who collected evidence, when, how it was handled, where it was stored, and who accessed or transferred it.
+
+\`\`\`
+Evidence → Hash → Custody Record → Secure Storage → Verification
+\`\`\`
+
+### 23 — Hashing & Verification
+Cryptographic hashes provide integrity checks for files and forensic artifacts. Recalculate when verification is required.
+
+> **Forensic Principle:** SHA-256 is a common integrity fingerprint; integrity does not by itself prove truth.
+
+### 24 — IOC Collection
+Collect hashes, domains, IPs, URLs, filenames, registry paths, persistence locations, certificates, and behavioral indicators with provenance.
+
+\`\`\`
+IOC + Source + Timestamp + Confidence + Context
+\`\`\`
+
+### 25 — Host Investigation
+Examine processes, users, services, scheduled tasks, startup locations, files, network connections, logs, and recent changes.
+
+> **Strategy:** Start from the alert and expand through related artifacts.
+
+### 26 — Process Investigation
+Review parent process, child process, user, command line, binary path, signature, and network behavior.
+
+\`\`\`
+Parent → Child → Command Line → User → File → Network
+\`\`\`
+
+### 27 — Persistence Investigation
+Investigate scheduled tasks, services, startup entries, registry mechanisms, cron jobs, SSH keys, and application startup hooks.
+
+> **Correlation:** Correlate persistence with first-seen and execution timestamps.
+
+### 28 — Network Investigation
+Determine whether communications are expected, identify unusual destinations, inspect timing and volume, and correlate with endpoint behavior.
+
+> **Rule:** A network anomaly becomes stronger evidence when tied to a process and user.
+
+### 29 — DNS & HTTP Investigation
+Analyze queried domains, responses, request paths, methods, user agents, status codes, headers, and timing.
+
+> **Context:** Protocol evidence needs endpoint and identity context.
+
+### 30 — Authentication Investigation
+Look for unusual login locations, new devices, repeated failures, privilege changes, suspicious service accounts, and sensitive-resource access.
+
+> **Validation:** Authentication anomalies are hypotheses until correlated.
+
+### 31 — Malware Investigation
+Determine what a sample does, how it executes, what artifacts it creates, what it communicates with, and how defenders can detect it.
+
+> **Mindset:** Behavior and artifacts matter more than a malware label.
+
+### 32 — Threat Intelligence
+Threat intelligence enriches indicators with known infrastructure, campaigns, techniques, and malware context.
+
+> **Rule:** Use intelligence to enrich local evidence, not replace it.
+
+### 33 — MITRE ATT&CK Mapping
+Map observed behavior to ATT&CK techniques when evidence supports the mapping.
+
+\`\`\`
+Observed Behavior → Technique → Detection Opportunity
+\`\`\`
+
+### 34 — Hypothesis-Driven Investigation
+Write a testable hypothesis instead of searching randomly. Example: "The account may have been compromised." Then test unusual login, device, privilege, and endpoint evidence.
+
+\`\`\`
+Hypothesis → Test → Evidence → Decision
+\`\`\`
+
+### 35 — Correlation
+Connect events across systems and time. A suspicious script is more meaningful when linked to a login, downloaded file, DNS request, and outbound connection.
+
+> **Correlation Insight:** One event can be ambiguous; a consistent sequence can be informative.
+
+### 36 — Containment
+Containment may include endpoint isolation, account disablement, session revocation, infrastructure blocking, or access restriction depending on the incident.
+
+> **Containment Rule:** Reduce risk while considering evidence preservation and business impact.
+
+### 37 — Eradication
+Remove malicious access and persistence, address root cause, rotate compromised credentials where appropriate, and close exploited weaknesses.
+
+\`\`\`
+Remove Access → Remove Persistence → Fix Cause → Verify
+\`\`\`
+
+### 38 — Recovery
+Restore trusted operation, validate security controls, monitor for recurrence, and document residual risk.
+
+\`\`\`
+Restore → Validate → Monitor → Confirm
+\`\`\`
+
+### 39 — Communication
+Communications should be timely and factual. Clearly distinguish confirmed facts from working hypotheses and uncertainty.
+
+> **Core Questions:** What happened? What is affected? What are we doing? What is needed?
+
+### 40 — Incident Documentation
+Document alert details, timeline, evidence, decisions, actions, scope, containment, eradication, recovery, and unresolved questions.
+
+> **Documentation Standard:** Another analyst should be able to understand the investigation.
+
+### 41 — Detection Improvement
+Convert useful incident observations into detections, enrichment, telemetry requirements, or playbook improvements.
+
+\`\`\`
+Incident → Gap → Detection/Control → Test → Deploy
+\`\`\`
+
+### 42 — Post-Incident Review
+Review what happened, what worked, what failed, what evidence was missing, and which improvements should be prioritized.
+
+> **Objective:** The objective is measurable improvement, not blame.
+
+### 43 — Common IR Mistakes
+Common mistakes include treating alerts as proof, failing to preserve volatile evidence, investigating without a hypothesis, ignoring identity context, and closing without validating recovery.
+
+> **Warning:** Fast response is valuable; uncontrolled response can create new risk.
+
+### 44 — Practical SOC Case Study
+For suspicious PowerShell: confirm host and user, capture process tree and command line, inspect parent process, files and network, correlate identity and DNS, identify persistence, determine scope, then contain.
+
+\`\`\`
+Alert → Triage → Timeline → Host → Network/Identity → Scope → Response
+\`\`\`
+
+### 45 — R&D / Experiment Framework
+Treat response improvements as experiments. Use authorized replayable telemetry or historical incidents, establish a baseline, change one major variable, and measure detection quality, false positives, analyst time, and response latency.
+
+\`\`\`
+Baseline → Change → Measure → Review → Deploy → Monitor
+\`\`\`
+
+### 46 — Analyst Checklist
+Capture the alert; identify asset and user; build timeline; preserve evidence; determine scope; correlate telemetry; document confidence; contain proportionately; verify eradication; validate recovery; record lessons.
+
+> **Checklist Rule:** If you cannot explain the evidence chain, the investigation is not finished.
+
+### 47 — Interview Framework
+Explain incidents as structured investigations: initial signal, hypothesis, evidence searched, findings, decision, action, and learning.
+
+\`\`\`
+Signal → Hypothesis → Evidence → Analysis → Decision → Outcome
+\`\`\`
+
+### 48 — Final Principles
+Incident response is turning incomplete and noisy signals into defensible conclusions and controlled actions while preserving evidence.
+
+> **Guiding Principle:** Be fast where urgency requires it. Be careful where evidence matters. Be explicit about uncertainty.
+
+### Quick Reference — Alert to Evidence
+| Stage | Core Question |
+| :--- | :--- |
+| **Alert** | What exactly triggered the detection? |
+| **Triage** | Is it expected, suspicious, or likely malicious? |
+| **Identify** | Which users, assets, systems, and data are involved? |
+| **Timeline** | What happened before, during, and after? |
+| **Collect** | What evidence can confirm or reject the hypothesis? |
+| **Correlate** | What independent telemetry supports the finding? |
+| **Scope** | How far did the activity spread? |
+| **Contain** | What action reduces risk safely? |
+| **Eradicate** | What malicious access or persistence must be removed? |
+| **Recover** | Can the environment return to trusted operation? |
+| **Improve** | What detection or control should change? |
 `
   },
   {
