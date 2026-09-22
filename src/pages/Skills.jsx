@@ -78,7 +78,14 @@ export default function Skills() {
         {categories.map((cat) => {
           const Icon = cat.icon;
           return (
-            <div key={cat.title} className="skill-card">
+            <div 
+              key={cat.title} 
+              className="skill-card"
+              style={{ 
+                '--cat-color': cat.color, 
+                '--cat-glow': `${cat.color}33` 
+              }}
+            >
               <div className="skill-card-header">
                 <Icon size={16} style={{ color: cat.color }} />
                 <strong>{cat.title}</strong>

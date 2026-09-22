@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Navbar({ active, setActive }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const links = ["Home", "About", "Projects", "Skills", "Certificates", "Journey", "Insights", "Contact"];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const go = (id) => {
     setActive(id);
     setOpen(false);
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <header className="nav">
+    <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <button className="brand" onClick={() => go("Home")}>PRIYANSHU</button>
       <nav className={open ? "nav-links open" : "nav-links"}>
         {links.map(l => (
