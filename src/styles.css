@@ -2029,41 +2029,6 @@ footer span:first-child{color:#fff;font-weight:700}
 }
 
 /* ==========================================================================
-   METALLIC GOLD SHIMMER & LUXURY LIGHT SWEEPS
-   ========================================================================== */
-@keyframes goldShimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.gold-shimmer,
-.hero h1 em,
-.about h2 em,
-.skills h2 em,
-.journey h2 em,
-.insights h2 em,
-.contact h2 em,
-.projects-v2-info h2 em {
-  background: linear-gradient(
-    115deg,
-    #c49a60 0%,
-    #f2dbb3 25%,
-    #ffffff 45%,
-    #f2dbb3 65%,
-    #c49a60 100%
-  );
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShimmer 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  display: inline-block;
-}
-
-/* ==========================================================================
    SCROLL REVEAL & STAGGER CASCADE
    ========================================================================== */
 .reveal-item {
@@ -2100,18 +2065,6 @@ footer span:first-child{color:#fff;font-weight:700}
 
 /* Accessibility: Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  .gold-shimmer,
-  .hero h1 em,
-  .about h2 em,
-  .skills h2 em,
-  .journey h2 em,
-  .insights h2 em,
-  .contact h2 em,
-  .projects-v2-info h2 em {
-    animation: none !important;
-    background: var(--gold) !important;
-    -webkit-text-fill-color: var(--gold) !important;
-  }
   .reveal-item {
     opacity: 1 !important;
     transform: none !important;
@@ -2122,5 +2075,6 @@ footer span:first-child{color:#fff;font-weight:700}
     transition: none !important;
   }
 }
+
 
 
